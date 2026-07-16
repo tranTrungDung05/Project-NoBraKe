@@ -1,0 +1,18 @@
+.vscode/
+
+# Build outputs
+application/build*/
+boot/build*/
+build*/
+
+# Generated firmware / object files
+*.o
+*.d
+*.su
+*.axf
+*.bin
+*.elf
+*.out
+*.map
+*.sym
+*.asm
