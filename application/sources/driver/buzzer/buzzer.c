@@ -3,6 +3,22 @@
 #include <misc.h>
 #include <buzzer.h>
 
+const Tone_TypeDef tones_welcome_start[] = {
+	{900, 2},
+	{0, 1},
+	{1400, 2},
+	{0, 1},
+	{2200, 3},
+	{0, 0}
+};
+
+const Tone_TypeDef tones_welcome_enter[] = {
+	{1800, 2},
+	{0, 1},
+	{2600, 2},
+	{0, 0}
+};
+
 volatile       uint32_t          _beep_duration;
 volatile       bool              _tones_playing;
 volatile const Tone_TypeDef     *_tones;

@@ -10,6 +10,7 @@
 extern view_dynamic_t dyn_view_item_game_score;
 extern view_screen_t scr_game_score;
 extern void scr_game_score_handle(ak_msg_t* msg);
+uint16_t nb_game_score_get_current(void);
 void nb_game_score_record_finish(uint16_t elapsed_s);
 
 #endif

@@ -5,19 +5,32 @@
 #include "message.h"
 
 #include "app.h"
-#include "app_dbg.h"
 
 #define NB_GAME_OBSTACLE_COUNT      (4)
+#define NB_GAME_OBSTACLE_W          (8)
+#define NB_GAME_OBSTACLE_H          (8)
+
+enum {
+    NB_GAME_OBSTACLE_STONE,
+    NB_GAME_OBSTACLE_BARRIER,
+    NB_GAME_OBSTACLE_CAR,
+    NB_GAME_OBSTACLE_TYPE_COUNT
+};
 
 typedef struct {
     int32_t z;
-    uint8_t lane_mask;
+    uint8_t lane;
+    uint8_t type;
     uint8_t active;
+    uint8_t view_index;
+    int16_t x;
+    int16_t y;
 } nb_game_obstacle_t;
 
 void nb_game_obstacle_handle(ak_msg_t *msg);
-uint8_t nb_game_obstacle_has_collision(void);
-uint8_t nb_game_obstacle_get_view_index(const nb_game_obstacle_t *obstacle);
+uint8_t nb_game_obstacle_count(void);
+const nb_game_obstacle_t *nb_game_obstacle_at(uint8_t index);
+void nb_game_obstacle_update_world(void);
 
 extern nb_game_obstacle_t nb_game_obstacles[NB_GAME_OBSTACLE_COUNT];
 extern uint8_t NB_GAME_OBSTACLE_VISIBLE;

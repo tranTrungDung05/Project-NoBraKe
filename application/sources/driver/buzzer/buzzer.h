@@ -170,6 +170,31 @@ static const Tone_TypeDef tones_merryChrismast[] = {
 	{   0, 0}  // <-- tones end
 };
 
+static const Tone_TypeDef tones_game_throttle[] = {
+    {1200, 1},
+    {1800, 1},
+    {0, 0}
+};
+
+static const Tone_TypeDef tones_game_crash[] = {
+    {240, 5},
+    {0, 2},
+    {160, 8},
+    {0, 0}
+};
+
+static const Tone_TypeDef tones_game_finish[] = {
+    {1600, 3},
+    {0, 1},
+    {2200, 3},
+    {0, 1},
+    {3200, 5},
+    {0, 0}
+};
+
+extern const Tone_TypeDef tones_welcome_start[];
+extern const Tone_TypeDef tones_welcome_enter[];
+
 // Function prototypes
 void BUZZER_Init(void);
 void BUZZER_Enable(uint16_t freq, uint32_t duration);

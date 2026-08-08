@@ -1,33 +1,35 @@
 #include "scr_game_settings.h"
 #include "nb_game_track.h"
 
-static const char* difficulty_name(uint8_t difficulty) {
-    switch (difficulty) {
-    case 0:
-        return "EASY";
-    case 1:
-        return "NORMAL";
-    default:
-        return "HARD";
+static void draw_difficulty_card(int16_t x, uint8_t width, int16_t label_x,
+                                 const char *label, uint8_t selected) {
+    if (selected) {
+        view_render.fillRect(x, 24, width, 16, WHITE);
+        view_render.setTextColor(BLACK);
     }
+    else {
+        view_render.drawRect(x, 24, width, 16, WHITE);
+        view_render.setTextColor(WHITE);
+    }
+
+    view_render.setCursor(label_x, 29);
+    view_render.print(label);
 }
 
 static void view_scr_game_settings() {
+    view_render.drawRoundRect(3, 3, 122, 58, 4, WHITE);
     view_render.setTextSize(1);
     view_render.setTextColor(WHITE);
 
-    view_render.setCursor(18, 2);
+    view_render.setCursor(31, 7);
     view_render.print("SETTINGS");
 
-    view_render.drawRect(0, 22, 128, 24, WHITE);
+    view_render.drawLine(10, 15, 118, 15, WHITE);
 
-    view_render.setCursor(12, 31);
-    view_render.print("DIFF:");
-    view_render.setCursor(58, 31);
-    view_render.print(difficulty_name(nb_game_settings_get_difficulty()));
-
-    view_render.setCursor(8, 56);
-    view_render.print("UP/DOWN  MODE:MENU");
+    uint8_t difficulty = nb_game_settings_get_difficulty();
+    draw_difficulty_card(9, 30, 12, "EASY", difficulty == 0);
+    draw_difficulty_card(47, 38, 48, "NORMAL", difficulty == 1);
+    draw_difficulty_card(91, 29, 93, "HARD", difficulty == 2);
 }
 
 view_dynamic_t dyn_view_item_game_settings = {

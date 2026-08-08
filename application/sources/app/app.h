@@ -166,6 +166,8 @@ enum {
 	NB_GAME_TIME_TICK = NB_GAME_DEFINE_SIG,
 	NB_GAME_MOVE_LEFT_REPEAT,
 	NB_GAME_MOVE_RIGHT_REPEAT,
+	NB_GAME_RESET,
+	NB_GAME_EXIT_GAME
 };
 
 /*****************************************************************************/
@@ -176,8 +178,21 @@ enum {
 /* define signal */
 
 enum {
-	NB_GAME_TRACK_INIT = NB_GAME_DEFINE_SIG,
+	NB_GAME_TRACK_SETUP = NB_GAME_DEFINE_SIG,
 	NB_GAME_TRACK_UPDATE,
+};
+
+/*****************************************************************************/
+/* Nobrake game 'SPRITE' task define
+ */
+/*****************************************************************************/
+/* timer signal */
+/* define signal */
+
+enum {
+	NB_GAME_SPRITE_SETUP = NB_GAME_DEFINE_SIG,
+	NB_GAME_SPRITE_UPDATE,
+	NB_GAME_SPRITE_RESET,
 };
 
 /*****************************************************************************/
@@ -201,13 +216,18 @@ enum {
 enum {
 	NB_GAME_CAR_SETUP = NB_GAME_DEFINE_SIG,
 	NB_GAME_CAR_UPDATE,
+	NB_GAME_CAR_RESET,
+
 	NB_GAME_CAR_THROTTLE,
 	NB_GAME_CAR_THROTTLE_RELEASE,
-	NB_GAME_CAR_ACTION_STRAIGHT,
-	NB_GAME_CAR_ACTION_LEFT,
-	NB_GAME_CAR_ACTION_RIGHT,
-	NB_GAME_CAR_FINISH_BRAKE,
-	NB_GAME_CAR_RESET,
+	NB_GAME_CAR_GO_STRAIGHT,
+	NB_GAME_CAR_TURN_LEFT,
+	NB_GAME_CAR_KEEP_TURN_LEFT,
+	NB_GAME_CAR_TURN_RIGHT,
+	NB_GAME_CAR_KEEP_TURN_RIGHT,
+
+	NB_GAME_CAR_CHECK_CRASH,
+	NB_GAME_CAR_FINISH_BRAKE
 };
 
 

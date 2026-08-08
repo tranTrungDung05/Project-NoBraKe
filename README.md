@@ -4,6 +4,19 @@
 
 Heartfelt thanks to [EPCB](https://epcb.vn/pages/frontpage) for standing with the AK Foundation and empowering our mission.
 
+### NoBrake game demo
+
+<!-- 
+[Watch the NoBrake game demo](VIDEO_URL)
+-->
+
+### NoBrake game documentation
+
+The game implementation and event-driven design are documented in
+[docs/README.md](docs/README.md). Start there for gameplay, pseudo-3D road
+projection, task/message flow, Mermaid diagrams, rendering, and extension
+APIs.
+
 AK Embedded Base Kit is an evaluation kit for advanced embedded software learners.
 - The KIT integrates 1.54" Oled LCD, 3 push buttons, and 1 Buzzers that play music, to learn the event-driven system through hands-on game machine design.
 - The KIT also integrates RS485, Qwiic Connect System, and Grove Ecosystems, suitable for prototyping practical applications in embedded systems.

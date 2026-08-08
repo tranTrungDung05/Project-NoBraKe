@@ -1,6 +1,7 @@
 #include "scr_game_finish.h"
 #include "app.h"
 #include "screens.h"
+#include "scr_game_score.h"
 #include "timer.h"
 
 #define FINISH_ANIM_INTERVAL (120)
@@ -62,18 +63,22 @@ static void finish_draw_confetti(uint8_t frame) {
 }
 
 static void view_scr_game_finish(void) {
+    view_render.drawRoundRect(3, 3, 122, 58, 4, WHITE);
     finish_draw_confetti(finish_frame);
     finish_draw_checkers(12, 4, 6, 3);
     finish_draw_checkers(92, 4, 6, 3);
 
-    view_render.setTextSize(2);
+    view_render.setTextSize(1);
     view_render.setTextColor(WHITE);
-    view_render.setCursor(22, 17);
-    view_render.print("FINISH");
+    view_render.setCursor(40, 14);
+    view_render.print("YOU WIN!");
 
     view_render.setTextSize(1);
-    view_render.setCursor(34, 36);
-    view_render.print("YOU MADE IT!");
+    view_render.setCursor(25, 26);
+    view_render.print("RACE COMPLETE");
+    view_render.setCursor(28, 36);
+    view_render.print("SCORE: ");
+    view_render.print(nb_game_score_get_current());
 
     finish_draw_clap(21, 46, finish_frame);
     finish_draw_clap(107, 46, finish_frame + 1);
