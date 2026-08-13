@@ -129,14 +129,6 @@ application/
     driver/buzzer/          Buzzer driver and tone patterns
 ```
 
-## Build
-
-From the `application` directory:
-
-```sh
-make
-```
-
 The Makefile creates an application image under
 `application/build_ak-base-kit-stm32l151-application/`. The local Makefile
 expects the ARM GCC toolchain at the path stored in `GCC_PATH`; change that
