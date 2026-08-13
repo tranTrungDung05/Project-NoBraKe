@@ -6,43 +6,50 @@ perspective mesh. Instead, it projects a list of 2D road lines onto the
 
 ## The Basic Idea
 
-A road line contains a screen position and a half-width. A far line is high
-and narrow. A near line is low and wide. Connecting many lines creates the
-road edges.
+Each road line has a screen position and a half-width. Lines that are farther
+away are placed higher on the screen and drawn narrower, while lines that are
+closer to the camera are placed lower and drawn wider.
 
-The examples below show how it works.
+By connecting these lines together, the road gradually takes shape.
 
-<table align="center">
-  <tr>
-    <td align="center"><img src="../hardware/images/guide/first_line.png" alt="" width="1000"/></td>
-  </tr>
-  <tr>
-    <td align="center"><img src="../hardware/images/guide/second_line.png" alt="" width="1000"/></td>
-  </tr>
-  <tr>
-    <td align="center"><img src="../hardware/images/guide/third_line.png" alt="" width="1000"/></td>
-  </tr>
-</table>
-
-As you can see, the road starts to appear. Now let's add some more lines.
+The examples below show how the road is built step by step.
 
 <table align="center">
   <tr>
-    <td align="center"><img src="../hardware/images/guide/full_road.png" alt="" width="1000"/></td>
+    <td align="center"><img src="../hardware/images/guide/first_line.png" alt="First road line" width="1000"/></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="../hardware/images/guide/second_line.png" alt="Second road line" width="1000"/></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="../hardware/images/guide/third_line.png" alt="Third road line" width="1000"/></td>
   </tr>
 </table>
 
-There you go, it is a road.
-
-For curves, we move each line slightly to the left or right.
+As more lines are added, they gradually form the shape of the road.
 
 <table align="center">
   <tr>
-    <td align="center"><img src="../hardware/images/guide/curving.png" alt="" width="1000"/></td>
+    <td align="center"><img src="../hardware/images/guide/full_road.png" alt="Full road" width="1000"/></td>
   </tr>
 </table>
 
-That is the basic idea of the game.
+That's it. A collection of 2D lines is enough to create the basic road
+perspective.
+
+To create a curve, the horizontal position of each line is shifted slightly
+to the left or right. When these small changes are applied across multiple
+lines, the road appears to bend.
+
+<table align="center">
+  <tr>
+    <td align="center"><img src="../hardware/images/guide/curving.png" alt="Curving road" width="1000"/></td>
+  </tr>
+</table>
+
+This is the basic idea behind the pseudo-3D road renderer used in NoBrake:
+build the road from 2D lines, use their size and position to create
+perspective, and shift those lines to create curves.
 
 The game stores these lines in `view_lines`. Each line has values similar to:
 
