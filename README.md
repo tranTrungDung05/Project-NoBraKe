@@ -61,10 +61,20 @@ ak_flash /dev/ttyUSB0 ak-base-kit-stm32l151-application.bin 0x08003000
 
 **Schematic** [[schematic-ak-embedded-base-kit-version-3.pdf]](https://github.com/ak-embedded-software/ak-base-kit-stm32l151/blob/main/hardware/schematic/schematic-ak-embedded-base-kit-version-3.pdf)
 
-<p align="center">
-  <a href="https://epcb.vn/products/ak-embedded-base-kit-lap-trinh-nhung-vi-dieu-khien-mcu"><img src="hardware/images/board/board-view-top.png" width="480"/></a>
-  <a href="https://epcb.vn/products/ak-embedded-base-kit-lap-trinh-nhung-vi-dieu-khien-mcu"><img src="hardware/images/board/board-view-bottom.png" width="480"/></a>
-</p>
+<table align="center">
+  <tr>
+    <td align="center">
+      <a href="https://epcb.vn/products/ak-embedded-base-kit-lap-trinh-nhung-vi-dieu-khien-mcu">
+        <img src="hardware/images/board/board-view-top.png" width="400"/>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://epcb.vn/products/ak-embedded-base-kit-lap-trinh-nhung-vi-dieu-khien-mcu">
+        <img src="hardware/images/board/board-view-bottom.png" width="400"/>
+      </a>
+    </td>
+  </tr>
+</table>
 
 <h3 align="center">II. How to Play</h3>
 <table align="center">
