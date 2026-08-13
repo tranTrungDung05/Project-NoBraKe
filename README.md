@@ -3,7 +3,7 @@
 <h2 align="center">Gameplay Demo</h2>
 
 <div align="center">
-  <video src="hardware/video/game_demo.mp4" controls width="480"></video>
+  <video src="https://github.com/user-attachments/assets/53bd2872-e17c-4238-9568-83834eb1b31b" controls width="480"></video>
 </div>
 
 <h2 align="center">Documentation</h2>
