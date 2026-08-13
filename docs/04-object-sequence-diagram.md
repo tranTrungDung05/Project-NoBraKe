@@ -145,24 +145,9 @@ new obstacle position instead of the old position.
 
 ## When the Car Stops
 
-When the car stops, the road should not scroll. But the time still needs to
-run, so the screen sends the track update directly. The road and obstacle stay
-in the same place.
+When the car stops, the road should stay in place instead of scrolling.
+However, the race timer still needs to keep running.
 
-```text
-Game screen -> Track: NB_GAME_TRACK_UPDATE
-Track -> Track: Add time only
-Track: Do not move road and obstacles
-```
-
-## Simple Summary
-
-```text
-Button input
-    -> Game screen
-    -> Car
-    -> Track
-    -> Obstacle
-    -> Car collision check
-    -> Screen draw
-```
+To handle this, the screen sends `NB_GAME_TRACK_UPDATE` directly to the
+track task. The track updates the elapsed race time but skips world movement
+and obstacle updates.
