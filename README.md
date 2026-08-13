@@ -148,8 +148,7 @@ possible only while the car has a positive speed.
 </table>
 <p align="center"><strong><em>Figure 4:</em></strong> Score screen</p>
 
-The score is based on how fast you finish the race.
-A higher remaining time gives a higher score, and harder difficulty multiplies the result.
+The score is based on how quickly you finish the race. The more time you have left, the higher your score. Higher difficulty levels also apply a multiplier to the final score.
 
 <h3 align="center">III. Game sequence diagram</h3>
 
