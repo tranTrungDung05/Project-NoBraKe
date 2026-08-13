@@ -7,6 +7,8 @@ Heartfelt thanks to [EPCB](https://epcb.vn/pages/frontpage) for standing with th
 ### NoBrake game demo
 
 https://github.com/user-attachments/assets/53bd2872-e17c-4238-9568-83834eb1b31b
+[nb_game_finish.webm](https://github.com/user-attachments/assets/447a50ba-3467-48f8-9db6-5f5db9e540d8)
+[nb_game_welcome.webm](https://github.com/user-attachments/assets/77febb6e-2fdc-463b-b1ef-8f3a548b6c79)
 
 
 ### NoBrake game documentation
