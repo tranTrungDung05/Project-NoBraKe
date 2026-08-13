@@ -3,7 +3,7 @@
 <h2 align="center">Gameplay Demo</h2>
 
 <div align="center">
-  <video src="https://github.com/tranTrungDung05/Project-NoBraKe/issues/3#issue-5141782255" controls width="480"></video>
+  <video src="https://github.com/user-attachments/assets/119c1d49-5e34-485f-9d85-bea0a484c2a3" controls width="480"></video>
 </div>
 
 <h2 align="center">Documentation</h2>
