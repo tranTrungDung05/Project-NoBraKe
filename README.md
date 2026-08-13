@@ -1,5 +1,9 @@
 <h1 align="center">No Brake - Game built on AK Embedded Base Kit - STM32L151</h1>
-
+<table align="center">
+  <tr>
+    <td align="center"><img src="hardware/images/screen/nb_banner.gif" alt="No Brake finish" width="480"/></td>
+  </tr>
+</table>
 <h2 align="center">Gameplay Demo</h2>
 
 <div align="center">
