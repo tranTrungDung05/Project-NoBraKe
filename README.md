@@ -25,7 +25,7 @@
 No Brake is a small event-driven driving game for the AK Embedded Base Kit with an STM32L151 microcontroller and a 128x64 monochrome OLED.
 
 <p align="center">
-  <a href="https://epcb.vn/products/ak-embedded-base-kit-lap-trinh-nhung-vi-dieu-khien-mcu"><img src="hardware/images/ak-embedded-base-kit-version-3.jpg" width="480"/></a>
+  <a href="https://epcb.vn/products/ak-embedded-base-kit-lap-trinh-nhung-vi-dieu-khien-mcu"><img src="hardware/images/board/ak-embedded-base-kit-version-3.jpg" width="480"/></a>
 </p>
 
 <h3 align="center">I. Hardware</h3>
@@ -47,14 +47,14 @@ ak_flash /dev/ttyUSB0 ak-base-kit-stm32l151-application.bin 0x08003000
 **Schematic** [[schematic-ak-embedded-base-kit-version-3.pdf]](https://github.com/ak-embedded-software/ak-base-kit-stm32l151/blob/main/hardware/schematic/schematic-ak-embedded-base-kit-version-3.pdf)
 
 <p align="center">
-  <a href="https://epcb.vn/products/ak-embedded-base-kit-lap-trinh-nhung-vi-dieu-khien-mcu"><img src="hardware/images/board-view-top.png" width="480"/></a>
-  <a href="https://epcb.vn/products/ak-embedded-base-kit-lap-trinh-nhung-vi-dieu-khien-mcu"><img src="hardware/images/board-view-bottom.png" width="480"/></a>
+  <a href="https://epcb.vn/products/ak-embedded-base-kit-lap-trinh-nhung-vi-dieu-khien-mcu"><img src="hardware/images/board/board-view-top.png" width="480"/></a>
+  <a href="https://epcb.vn/products/ak-embedded-base-kit-lap-trinh-nhung-vi-dieu-khien-mcu"><img src="hardware/images/board/board-view-bottom.png" width="480"/></a>
 </p>
 
 <h3 align="center">II. How to Play</h3>
 <table align="center">
   <tr>
-    <td align="center"><img src="hardware/images/gif/nb_game_welcome.gif" alt="No Brake welcome" width="480"/></td>
+    <td align="center"><img src="hardware/images/screen/nb_game_welcome.gif" alt="No Brake welcome" width="480"/></td>
   </tr>
 </table>
 <p align="center"><strong><em>Figure 1:</em></strong> Welcome screen</p>
@@ -68,7 +68,7 @@ The game opens on the **Menu**, which offers the following options:
 
 <table align="center">
   <tr>
-    <td align="center"><img src="hardware/images/nb_game_play.png" alt="No Brake gameplay" width="480"/></td>
+    <td align="center"><img src="hardware/images/screen/nb_game_play.png" alt="No Brake gameplay" width="480"/></td>
   </tr>
 </table>
 <p align="center"><strong><em>Figure 2:</em></strong> Gameplay screen</p>
@@ -99,7 +99,7 @@ The player wins when reaching the track length. The car then uses the finish-bra
 
 <table align="center">
   <tr>
-    <td align="center"><img src="hardware/images/gif/nb_game_finish.gif" alt="No Brake finish" width="480"/></td>
+    <td align="center"><img src="hardware/images/screen/nb_game_finish.gif" alt="No Brake finish" width="480"/></td>
   </tr>
 </table>
 <p align="center"><strong><em>Figure 3:</em></strong> Finish screen</p>
@@ -118,7 +118,7 @@ possible only while the car has a positive speed.
 
 <table align="center">
   <tr>
-    <td align="center"><img src="hardware/images/nb_game_score.png" alt="No Brake score" width="480"/></td>
+    <td align="center"><img src="hardware/images/screen/nb_game_score.png" alt="No Brake score" width="480"/></td>
   </tr>
 </table>
 <p align="center"><strong><em>Figure 4:</em></strong> Score screen</p>
@@ -130,21 +130,21 @@ A higher remaining time gives a higher score, and harder difficulty multiplies t
 
 <table align="center">
   <tr>
-    <td align="center"><img src="hardware/images/game_start_sequence.png" alt="Game start sequence" width="1000"/></td>
+    <td align="center"><img src="hardware/images/sequence_design/game_start_sequence.png" alt="Game start sequence" width="1000"/></td>
   </tr>
 </table>
 <p align="center"><strong><em>Figure 5:</em></strong> Screen start</p>
 
 <table align="center">
   <tr>
-    <td align="center"><img src="hardware/images/game_play_sequence.png" alt="Game play sequence" width="1000"/></td>
+    <td align="center"><img src="hardware/images/sequence_design/game_play_sequence.png" alt="Game play sequence" width="1000"/></td>
   </tr>
 </table>
 <p align="center"><strong><em>Figure 6:</em></strong> Game loop</p>
 
 <table align="center">
   <tr>
-    <td align="center"><img src="hardware/images/game_reset_sequence.png" alt="Game reset sequence" width="1000"/></td>
+    <td align="center"><img src="hardware/images/sequence_design/game_reset_sequence.png" alt="Game reset sequence" width="1000"/></td>
   </tr>
 </table>
 <p align="center"><strong><em>Figure 7:</em></strong> Screen Reset </p>

@@ -6,9 +6,43 @@ perspective mesh. Instead, it projects a list of 2D road lines onto the
 
 ## The Basic Idea
 
-A road line contains a screen position and a width. A far line is high and
-narrow. A near line is low and wide. Connecting many lines creates the road
-edges.
+A road line contains a screen position and a half-width. A far line is high
+and narrow. A near line is low and wide. Connecting many lines creates the
+road edges.
+
+The examples below show how it works.
+
+<table align="center">
+  <tr>
+    <td align="center"><img src="../hardware/images/guide/first_line.png" alt="" width="1000"/></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="../hardware/images/guide/second_line.png" alt="" width="1000"/></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="../hardware/images/guide/third_line.png" alt="" width="1000"/></td>
+  </tr>
+</table>
+
+As you can see, the road starts to appear. Now let's add some more lines.
+
+<table align="center">
+  <tr>
+    <td align="center"><img src="../hardware/images/guide/full_road.png" alt="" width="1000"/></td>
+  </tr>
+</table>
+
+There you go, it is a road.
+
+For curves, we move each line slightly to the left or right.
+
+<table align="center">
+  <tr>
+    <td align="center"><img src="../hardware/images/guide/curving.png" alt="" width="1000"/></td>
+  </tr>
+</table>
+
+That is the basic idea of the game.
 
 The game stores these lines in `view_lines`. Each line has values similar to:
 

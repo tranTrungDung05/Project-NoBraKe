@@ -1,12 +1,12 @@
 # Road Algorithm
 
-This document describes the current implementation in
+This document describes the implementation in
 `application/sources/app/game/nobrake_game/nb_game_track.cpp`.
 
 ## World Values
 
 The world is measured in integer units. The track starts at `track.pos = 0`
-and ends at a difficulty-dependent length. The road is split into segments
+and ends at a difficulty dependent length. The road is split into segments
 of `NB_GAME_SEGMENT_LENGTH` units.
 
 The renderer keeps 24 visible lines. A line is created from its distance from
