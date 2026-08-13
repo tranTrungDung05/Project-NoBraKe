@@ -12,15 +12,8 @@ static void view_scr_game_over(void) {
     view_render.print("GAME OVER");
 
     view_render.setTextSize(1);
-    view_render.setCursor(32, 34);
-    view_render.print("NO BRAKE");
-
-    view_render.drawCircle(88, 37, 5, WHITE);
-    view_render.drawPixel(86, 36, WHITE);
-    view_render.drawPixel(90, 36, WHITE);
-    view_render.drawLine(85, 39, 87, 41, WHITE);
-    view_render.drawLine(87, 41, 90, 41, WHITE);
-    view_render.drawLine(90, 41, 92, 39, WHITE);
+    view_render.setCursor(32, 40);
+    view_render.print("NO BRAKE ?");
 }
 
 view_dynamic_t dyn_view_item_game_over = {
