@@ -4,7 +4,7 @@
   <tr>
     <td align="center">
       <img
-        src="hardware/images/screen/nb_banner.gif"
+        src="hardware/images/screen/nb_banner_night.gif"
         alt="No Brake finish"
         width="720"
       />
