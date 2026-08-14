@@ -38,42 +38,15 @@
 
 No Brake is a small event-driven driving game for the AK Embedded Base Kit with an STM32L151 microcontroller and a 128x64 monochrome OLED.
 
+
+<h3 align="center">I. Hardware</h3>
+
 <p align="center">
   <a href="https://epcb.vn/products/ak-embedded-base-kit-lap-trinh-nhung-vi-dieu-khien-mcu"><img src="hardware/images/board/ak-embedded-base-kit-version-3.jpg" width="480"/></a>
 </p>
 
-<h3 align="center">I. Hardware</h3>
 
-The AK Embedded Base Kit is an evaluation kit for advanced embedded software learners.
-- The KIT integrates 1.54" Oled LCD, 3 push buttons, and 1 buzzer that plays music, to learn the event-driven system through hands-on game machine design.
-- The KIT also integrates RS485, Qwiic Connect System, and Grove Ecosystems, suitable for prototyping practical applications in embedded systems.
-
-### Memory map
-- [ 0x08000000 ] : **Boot** [[ak-base-kit-stm32l151-boot.bin]](https://github.com/ak-embedded-software/ak-base-kit-stm32l151/blob/main/hardware/bin/ak-base-kit-stm32l151-boot.bin)
-- [ 0x08002000 ] : **BSF** [ Memory for data sharing between Boot and Application ]
-- [ 0x08003000 ] : **Application** [[ak-base-kit-stm32l151-application.bin]](https://github.com/ak-embedded-software/ak-base-kit-stm32l151/blob/main/hardware/bin/ak-base-kit-stm32l151-application.bin)
-
-**Note:** After loading boot & application firmware, you can use [AK - Flash](https://github.com/ak-embedded-software/ak-flash) to load the application directly through the **USB** port on the KIT
-```sh
-ak_flash /dev/ttyUSB0 ak-base-kit-stm32l151-application.bin 0x08003000
-```
-
-**Schematic** [[schematic-ak-embedded-base-kit-version-3.pdf]](https://github.com/ak-embedded-software/ak-base-kit-stm32l151/blob/main/hardware/schematic/schematic-ak-embedded-base-kit-version-3.pdf)
-
-<table align="center">
-  <tr>
-    <td align="center">
-      <a href="https://epcb.vn/products/ak-embedded-base-kit-lap-trinh-nhung-vi-dieu-khien-mcu">
-        <img src="hardware/images/board/board-view-top.png" width="400"/>
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://epcb.vn/products/ak-embedded-base-kit-lap-trinh-nhung-vi-dieu-khien-mcu">
-        <img src="hardware/images/board/board-view-bottom.png" width="400"/>
-      </a>
-    </td>
-  </tr>
-</table>
+[AK Embedded Base Kit](https://epcb.vn/products/ak-embedded-base-kit-lap-trinh-nhung-vi-dieu-khien-mcu) is an evaluation kit aimed at intermediate and advanced embedded software learners. *You can learn more in the following link:*  [ak-base-kit-stm32l151](https://github.com/the-ak-foundation/ak-base-kit-stm32l151)
 
 <h3 align="center">II. How to Play</h3>
 <table align="center">
