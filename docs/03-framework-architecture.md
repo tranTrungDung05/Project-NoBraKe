@@ -115,18 +115,19 @@ The important separation is that game tasks update data and screen files
 render it. A task other than the screen does not draw directly to the OLED.
 
 ## Source Layout
-
 ```text
-application/
-  Makefile
-  sources/
-    app/
-      app.h                 Signals and timer values
-      task_list.cpp         Task registration
-      game/nobrake_game/    Car, track, and obstacle tasks
-      screens/              Screen handlers and drawing
-    common/                 Framework screen and drawing support
-    driver/buzzer/          Buzzer driver and tone patterns
+application
+├── Makefile
+└── sources
+    ├── app
+    │   ├── app.h                 # Signals and timer values
+    │   ├── task_list.cpp         # Task registration
+    │   ├── game
+    │   │   └── nobrake_game/      # Car, track, and obstacle tasks
+    │   └── screens/              # Screen handlers and drawing
+    ├── common/                   # Framework screen and drawing support
+    └── driver
+        └── buzzer/               # Buzzer driver and tone patterns
 ```
 
 The Makefile creates an application image under
