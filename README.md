@@ -32,8 +32,7 @@
 | [04-object-sequence-diagram.md](docs/04-object-sequence-diagram.md) | Shows communication between the game tasks. |
 | [05-signal-execution-flow.md](docs/05-signal-execution-flow.md) | Lists active signals and shows the game state machine. |
 | [06-rendering-pipeline.md](docs/06-rendering-pipeline.md) | Explains how game data becomes OLED pixels. |
-| [07-road-algorithm.md](docs/07-road-algorithm.md) | Describes projection, curves, trees, and obstacle placement. |
-| [08-api-reference.md](docs/08-api-reference.md) | Lists the interfaces used when extending the game. |
+| [07-api-reference.md](docs/07-api-reference.md) | Lists the interfaces used when extending the game. |
 
 <h2 align="center">Introduction</h2>
 

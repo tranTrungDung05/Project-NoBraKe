@@ -93,5 +93,4 @@ Startup -> Welcome -> Menu
 - Add more track curve patterns.
 - Add more obstacle and car bitmaps.
 - Add more sky or time-of-day themes.
-- Persist high scores in EEPROM.
 - Add a second race mode with different rules.
