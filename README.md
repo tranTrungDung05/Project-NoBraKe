@@ -151,6 +151,170 @@ The score is based on how quickly you finish the race. The more time you have le
 
 <h3 align="center">III. Game sequence diagram</h3>
 
+```mermaid
+%%{init: {
+  "theme": "base",
+  "themeVariables": {
+    "fontSize": "20px",
+
+    "primaryColor": "#263B5A",
+    "primaryTextColor": "#F5F7FA",
+    "primaryBorderColor": "#5B789E",
+
+    "lineColor": "#78909C",
+    "textColor": "#E3E8EF",
+
+    "signalColor": "#FFD180",
+    "signalTextColor": "#FFE0B2",
+
+    "actorBkg": "#344767",
+    "actorBorder": "#607D9F",
+    "actorTextColor": "#F5F7FA",
+    "actorLineColor": "#78909C",
+
+    "noteBkgColor": "#4A4A42",
+    "noteTextColor": "#FFF8E1",
+    "noteBorderColor": "#8D846B",
+
+    "activationBkgColor": "#3E6658",
+    "activationBorderColor": "#668F7E",
+
+    "sequenceNumberColor": "#F5F7FA",
+
+    "loopTextColor": "#B0BEC5",
+
+    "labelBoxBkgColor": "#394B63",
+    "labelBoxBorderColor": "#607D9F",
+    "labelTextColor": "#F5F7FA"
+  },
+
+  "sequence": {
+    "actorMargin": 55,
+    "noteMargin": 12,
+    "messageAlign": "center",
+    "messageFontSize": 19,
+    "noteFontSize": 17,
+    "actorFontSize": 20
+  }
+}}%%
+sequenceDiagram
+    autonumber
+
+    participant Player
+    participant Scr as Screen task
+    participant Q as AKOS Scheduler
+    participant Tmr as Timer
+    participant Car as Car task
+    participant Trk as Track task
+    participant Obs as Obstacle task
+    participant Next as Next screen
+
+    Note over Player,Scr: GAME_START
+
+    Player->>Scr: Open Play
+    activate Scr
+
+    Scr->>Q: NB_GAME_CAR_SETUP
+    Scr->>Q: NB_GAME_TRACK_SETUP
+    Scr->>Q: NB_GAME_OBSTACLE_SETUP
+    Scr->>Scr: game_state = GAME_PLAY
+    Scr->>Tmr: timer_set(NB_GAME_TIME_TICK, 70 ms, PERIODIC)
+
+    deactivate Scr
+
+    Q->>Car: NB_GAME_CAR_SETUP
+    activate Car
+    Note right of Car: Put car at start position
+    deactivate Car
+
+    Q->>Trk: NB_GAME_TRACK_SETUP
+    activate Trk
+    Note right of Trk: Create road lines<br/>and tree ring buffer
+    deactivate Trk
+
+    Q->>Obs: NB_GAME_OBSTACLE_SETUP
+    activate Obs
+    Note right of Obs: Fill obstacle ring buffer
+    deactivate Obs
+
+    Note over Player,Scr: GAME_PLAY
+
+    loop Every 70 ms
+
+        Tmr->>Scr: NB_GAME_TIME_TICK
+        activate Scr
+
+        Scr->>Scr: Read button input<br/>and update HUD
+        Scr->>Q: NB_GAME_CAR_UPDATE
+
+        deactivate Scr
+
+        alt Car is moving
+
+            Q->>Car: NB_GAME_CAR_UPDATE
+            activate Car
+            Note right of Car: Update speed and car.x
+            Car->>Q: NB_GAME_TRACK_UPDATE
+            deactivate Car
+
+            Q->>Trk: NB_GAME_TRACK_UPDATE
+            activate Trk
+            Note right of Trk: Move road<br/>and add game time
+            Trk->>Q: NB_GAME_OBSTACLE_UPDATE
+            deactivate Trk
+
+            Q->>Obs: NB_GAME_OBSTACLE_UPDATE
+            activate Obs
+            Note right of Obs: Calculate active obstacle view
+            Obs->>Q: NB_GAME_CAR_CHECK_CRASH
+            deactivate Obs
+
+            Q->>Car: NB_GAME_CAR_CHECK_CRASH
+            activate Car
+            Note right of Car: Check road and<br/>front-part hitbox
+            deactivate Car
+
+        else Car is stopped
+
+            Scr->>Q: NB_GAME_TRACK_UPDATE
+
+            Q->>Trk: NB_GAME_TRACK_UPDATE
+            activate Trk
+            Note right of Trk: Add game time only<br/>Do not move road or obstacles
+            Trk->>Q: NB_GAME_OBSTACLE_UPDATE
+            deactivate Trk
+
+            Q->>Obs: NB_GAME_OBSTACLE_UPDATE
+            activate Obs
+            Note right of Obs: Keep obstacle position
+            deactivate Obs
+
+        end
+
+    end
+
+    Note over Player,Scr: GAME_RESET
+
+    Next->>Scr: SCREEN_EXIT
+    activate Scr
+
+    Scr->>Tmr: timer_remove_attr(NB_GAME_TIME_TICK)
+    Scr->>Q: NB_GAME_CAR_RESET
+    Scr->>Q: NB_GAME_OBSTACLE_RESET
+
+    deactivate Scr
+
+    Q->>Car: NB_GAME_CAR_RESET
+    activate Car
+    Note right of Car: speed = 0<br/>throttle = 0<br/>hide car
+    deactivate Car
+
+    Q->>Obs: NB_GAME_OBSTACLE_RESET
+    activate Obs
+    Note right of Obs: Clear obstacle ring buffer
+    deactivate Obs
+```
+<p align="center"><strong><em>Figure 5:</em></strong> Basic game sequences </p>
 
 ## Contact & Support
 
