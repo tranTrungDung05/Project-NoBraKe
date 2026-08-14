@@ -6,26 +6,22 @@ finish before the time limit.
 
 ## Hardware Controls
 
-The board provides three buttons:
-
 | Button | In the menu | During the race |
 | --- | --- | --- |
 | `UP` | Move selection up | Steer right |
 | `DOWN` | Move selection down | Steer left |
 | `MODE` | Select an item | Hold to accelerate |
 
-Releasing `UP` or `DOWN` stops steering. Releasing `MODE` stops
-acceleration. The car has no brake button. It gradually slows down when the
-accelerator is released.
-
 ## Menu
 
 The game menu has four items:
 
-1. `Play` starts a race.
-2. `Settings` changes the difficulty.
-3. `Charts` shows the best three scores stored during the current power cycle.
-4. `Exit` opens the idle screen.
+| Item | Action |
+| --- | --- |
+| `Play` | Starts a race. |
+| `Settings` | Changes the difficulty. |
+| `Charts` | Shows the best three scores stored during the current power cycle. |
+| `Exit` | Opens the idle screen. |
 
 The menu also has an idle timeout. If there is no menu input for 15 seconds,
 the idle screen is opened. Pressing a button returns to the menu that opened
@@ -66,27 +62,17 @@ restarts.
 ## Obstacles
 
 Each obstacle receives a random lane and a random bitmap type when it enters
-the ring buffer. The current types are:
+the ring buffer. The current variants are:
 
-- Stone
-- Barrier
-- Mini car
+| Type | Bitmap | Notes |
+| --- | --- | --- |
+| Stone | ![Stone obstacle](../hardware/images/guide/nb_bitmap_stone.png) | Small rock that blocks the lane and must be avoided. |
+| Barrier | ![Barrier obstacle](../hardware/images/guide/nb_bitmap_barrier.png) | Road barrier that forces the player to steer around it. |
+| Mini car | ![Mini car obstacle](../hardware/images/guide/nb_bitmap_minicar.png) | Small traffic car that acts like a dynamic obstacle in the lane. |
 
-The bitmap data is stored in
-`application/sources/app/screens/screens_bitmap.cpp`. The obstacle task owns
-the world position and projected position; the screen task owns drawing.
-
-## Screen Flow
-
-```text
-Startup -> Welcome -> Menu
-                      |
-          +-----------+-----------+
-          |           |           |
-        Play      Settings     Charts
-          |
-        Race -> Finish or Game Over
-```
+The bitmap data is stored in `application/sources/app/screens/screens_bitmap.cpp`.
+The obstacle task owns the world position and projected position; the screen
+task owns drawing.
 
 ## Future Ideas
 
