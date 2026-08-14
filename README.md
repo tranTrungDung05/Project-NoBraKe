@@ -146,6 +146,13 @@ possible only while the car has a positive speed.
 
 The score is based on how quickly you finish the race. The more time you have left, the higher your score. Higher difficulty levels also apply a multiplier to the final score.
 
+| Type | Bitmap | Notes |
+| --- | --- | --- |
+| Stone | ![Stone obstacle](/hardware/images/guide/nb_bitmap_stone.png) | Small rock that blocks the lane and must be avoided. |
+| Barrier | ![Barrier obstacle](/hardware/images/guide/nb_bitmap_barrier.png) | Road barrier that forces the player to steer around it. |
+| Mini car | ![Mini car obstacle](/hardware/images/guide/nb_bitmap_minicar.png) | Small traffic car that acts like a dynamic obstacle in the lane. |
+
+
 <h3 align="center">III. Game sequence diagram</h3>
 
 ```mermaid
