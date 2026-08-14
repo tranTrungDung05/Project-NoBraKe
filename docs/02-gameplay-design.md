@@ -66,9 +66,9 @@ the ring buffer. The current variants are:
 
 | **Name**   | **Bitmap** | **Notes** |
 |------------|------------|-----------|
-| **Stone**  | <img src="../hardware/images/bitmap/nb_bitmap_stone.png" width="100"/> | Small rock that blocks the lane and must be avoided. |
-| **Barrier**| <img src="../hardware/images/bitmap/nb_bitmap_barrier.png" width="100"/> | Road barrier that forces the player to steer around it. |
-| **Mini car** | <img src="../hardware/images/bitmap/nb_bitmap_minicar.png" width="100"/> | Small traffic car that acts like a dynamic obstacle in the lane. |
+| **Stone**  | <img src="../hardware/images/bitmap/bitmap_stone.png" width="100"/> | Small rock that blocks the lane and must be avoided. |
+| **Barrier**| <img src="../hardware/images/bitmap/bitmap_barrier.png" width="100"/> | Road barrier that forces the player to steer around it. |
+| **Mini car** | <img src="../hardware/images/bitmap/bitmap_minicar.png" width="100"/> | Small traffic car that acts like a dynamic obstacle in the lane. |
 
 The bitmap data is stored in `application/sources/app/screens/screens_bitmap.cpp`.
 The obstacle task owns the world position and projected position; the screen

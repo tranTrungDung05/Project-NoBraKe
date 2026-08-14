@@ -4,7 +4,7 @@
   <tr>
     <td align="center">
       <img
-        src="hardware/images/screen/nb_banner_night.gif"
+        src="hardware/images/screen/banner_game_nobrake.gif"
         alt="No Brake finish"
         width="720"
       />
@@ -75,7 +75,7 @@ No Brake is a small event-driven driving game for the AK Embedded Base Kit with 
 <h3 align="center">II. How to Play</h3>
 <table align="center">
   <tr>
-    <td align="center"><img src="hardware/images/screen/nb_game_welcome.gif" alt="No Brake welcome" width="480"/></td>
+    <td align="center"><img src="hardware/images/screen/scr_game_welcome.gif" alt="No Brake welcome" width="480"/></td>
   </tr>
 </table>
 <p align="center"><strong><em>Figure 1:</em></strong> Welcome screen</p>
@@ -89,7 +89,7 @@ The game opens on the **Menu**, which offers the following options:
 
 <table align="center">
   <tr>
-    <td align="center"><img src="hardware/images/screen/nb_game_play.png" alt="No Brake gameplay" width="480"/></td>
+    <td align="center"><img src="hardware/images/screen/scr_game_play.png" alt="No Brake gameplay" width="480"/></td>
   </tr>
 </table>
 <p align="center"><strong><em>Figure 2:</em></strong> Gameplay screen</p>
@@ -120,14 +120,14 @@ The player wins when reaching the track length. The car then uses the finish-bra
 
 <table align="center">
   <tr>
-    <td align="center"><img src="hardware/images/screen/nb_game_finish.gif" alt="No Brake finish" width="480"/></td>
+    <td align="center"><img src="hardware/images/screen/scr_game_finish.gif" alt="No Brake finish" width="480"/></td>
   </tr>
 </table>
 <p align="center"><strong><em>Figure 3:</em></strong> Finish screen</p>
 
 <table align="center">
   <tr>
-    <td align="center"><img src="hardware/images/screen/nb_game_over.png" alt="No Brake finish" width="480"/></td>
+    <td align="center"><img src="hardware/images/screen/scr_game_over.png" alt="No Brake finish" width="480"/></td>
   </tr>
 </table>
 <p align="center"><strong><em>Figure 4:</em></strong> Game over screen</p>
@@ -147,7 +147,7 @@ possible only while the car has a positive speed.
 
 <table align="center">
   <tr>
-    <td align="center"><img src="hardware/images/screen/nb_game_chart.png" alt="No Brake score" width="480"/></td>
+    <td align="center"><img src="hardware/images/screen/scr_game_charts.png" alt="No Brake score" width="480"/></td>
   </tr>
 </table>
 <p align="center"><strong><em>Figure 5:</em></strong> Score screen</p>
@@ -158,12 +158,12 @@ The score is based on how quickly you finish the race. The more time you have le
 
 | **Name**   | **Bitmap** | **Notes** |
 |------------|------------|-----------|
-| **Stone**  | <img src="hardware/images/bitmap/nb_bitmap_stone.png" width="100"/> | Small rock that blocks the lane and must be avoided. |
-| **Barrier**| <img src="hardware/images/bitmap/nb_bitmap_barrier.png" width="100"/> | Road barrier that forces the player to steer around it. |
-| **Mini car** | <img src="hardware/images/bitmap/nb_bitmap_minicar.png" width="100"/> | Small traffic car that acts like a dynamic obstacle in the lane. |
-| **Car**    | <img src="hardware/images/bitmap/nb_bitmap_car.png" width="100"/> | Player's car. |
-| **Cloud**  | <img src="hardware/images/bitmap/nb_bitmap_cloud.png" width="100"/> | Decorative cloud sprite in the background. |
-| **Tree**   | <img src="hardware/images/bitmap/nb_bitmap_tree.png" width="100"/> | Roadside tree decoration object. |
+| **Stone**  | <img src="hardware/images/bitmap/bitmap_stone.png" width="100"/> | Small rock that blocks the lane and must be avoided. |
+| **Barrier**| <img src="hardware/images/bitmap/bitmap_barrier.png" width="100"/> | Road barrier that forces the player to steer around it. |
+| **Mini car** | <img src="hardware/images/bitmap/bitmap_minicar.png" width="100"/> | Small traffic car that acts like a dynamic obstacle in the lane. |
+| **Car**    | <img src="hardware/images/bitmap/bitmap_car.png" width="100"/> | Player's car. |
+| **Cloud**  | <img src="hardware/images/bitmap/bitmap_cloud.png" width="100"/> | Decorative cloud sprite in the background. |
+| **Tree**   | <img src="hardware/images/bitmap/bitmap_tree.png" width="100"/> | Roadside tree decoration object. |
 
 <h3 align="center">III. Game sequence diagram</h3>
 
