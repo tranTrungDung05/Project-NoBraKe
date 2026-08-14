@@ -125,6 +125,14 @@ The player wins when reaching the track length. The car then uses the finish-bra
 </table>
 <p align="center"><strong><em>Figure 3:</em></strong> Finish screen</p>
 
+<table align="center">
+  <tr>
+    <td align="center"><img src="hardware/images/screen/nb_game_over.png" alt="No Brake finish" width="480"/></td>
+  </tr>
+</table>
+<p align="center"><strong><em>Figure 4:</em></strong> Game over screen</p>
+
+
 Difficulty is changed from the Settings screen with `UP` and `DOWN`.
 
 | Difficulty | Time limit | Track length | Maximum active obstacles |
@@ -139,19 +147,23 @@ possible only while the car has a positive speed.
 
 <table align="center">
   <tr>
-    <td align="center"><img src="hardware/images/screen/nb_game_score.png" alt="No Brake score" width="480"/></td>
+    <td align="center"><img src="hardware/images/screen/nb_game_chart.png" alt="No Brake score" width="480"/></td>
   </tr>
 </table>
-<p align="center"><strong><em>Figure 4:</em></strong> Score screen</p>
+<p align="center"><strong><em>Figure 5:</em></strong> Score screen</p>
 
 The score is based on how quickly you finish the race. The more time you have left, the higher your score. Higher difficulty levels also apply a multiplier to the final score.
 
-| Type | Bitmap | Notes |
-| --- | --- | --- |
-| Stone | ![Stone obstacle](/hardware/images/guide/nb_bitmap_stone.png) | Small rock that blocks the lane and must be avoided. |
-| Barrier | ![Barrier obstacle](/hardware/images/guide/nb_bitmap_barrier.png) | Road barrier that forces the player to steer around it. |
-| Mini car | ![Mini car obstacle](/hardware/images/guide/nb_bitmap_minicar.png) | Small traffic car that acts like a dynamic obstacle in the lane. |
+## Object in game
 
+| **Name**   | **Bitmap** | **Notes** |
+|------------|------------|-----------|
+| **Stone**  | <img src="hardware/images/bitmap/nb_bitmap_stone.png" width="100"/> | Small rock that blocks the lane and must be avoided. |
+| **Barrier**| <img src="hardware/images/bitmap/nb_bitmap_barrier.png" width="100"/> | Road barrier that forces the player to steer around it. |
+| **Mini car** | <img src="hardware/images/bitmap/nb_bitmap_minicar.png" width="100"/> | Small traffic car that acts like a dynamic obstacle in the lane. |
+| **Car**    | <img src="hardware/images/bitmap/nb_bitmap_car.png" width="100"/> | Player's car. |
+| **Cloud**  | <img src="hardware/images/bitmap/nb_bitmap_cloud.png" width="100"/> | Decorative cloud sprite in the background. |
+| **Tree**   | <img src="hardware/images/bitmap/nb_bitmap_tree.png" width="100"/> | Roadside tree decoration object. |
 
 <h3 align="center">III. Game sequence diagram</h3>
 
@@ -290,7 +302,7 @@ sequenceDiagram
     Note right of Obs: Clear obstacle ring buffer
     deactivate Obs
 ```
-<p align="center"><strong><em>Figure 5:</em></strong> Basic game sequences </p>
+<p align="center"><strong><em>Figure 6:</em></strong> Basic game sequences </p>
 
 ## Contact & Support
 
