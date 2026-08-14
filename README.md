@@ -128,46 +128,14 @@ The score is based on how quickly you finish the race. The more time you have le
 %%{init: {
   "theme": "base",
   "themeVariables": {
-    "fontSize": "20px",
-
-    "primaryColor": "#263B5A",
-    "primaryTextColor": "#F5F7FA",
-    "primaryBorderColor": "#5B789E",
-
-    "lineColor": "#78909C",
-    "textColor": "#E3E8EF",
-
-    "signalColor": "#FFD180",
-    "signalTextColor": "#FFE0B2",
-
-    "actorBkg": "#344767",
-    "actorBorder": "#607D9F",
-    "actorTextColor": "#F5F7FA",
-    "actorLineColor": "#78909C",
-
-    "noteBkgColor": "#4A4A42",
-    "noteTextColor": "#FFF8E1",
-    "noteBorderColor": "#8D846B",
-
-    "activationBkgColor": "#3E6658",
-    "activationBorderColor": "#668F7E",
-
-    "sequenceNumberColor": "#F5F7FA",
-
-    "loopTextColor": "#B0BEC5",
-
-    "labelBoxBkgColor": "#394B63",
-    "labelBoxBorderColor": "#607D9F",
-    "labelTextColor": "#F5F7FA"
+    "lineColor": "#888888",
+    "textColor": "#555555"
   },
 
   "sequence": {
-    "actorMargin": 55,
-    "noteMargin": 12,
-    "messageAlign": "center",
-    "messageFontSize": 19,
-    "noteFontSize": 17,
-    "actorFontSize": 20
+    "actorMargin": 50,
+    "noteMargin": 10,
+    "messageAlign": "center"
   }
 }}%%
 sequenceDiagram
