@@ -60,8 +60,9 @@
 
 <h2 align="center">Introduction</h2>
 
-No Brake is a small event-driven driving game for the AK Embedded Base Kit with an STM32L151 microcontroller and a 128x64 monochrome OLED.
+This project is a simple racing game built for the AK Embedded Base Kit using an STM32L151 microcontroller and a 128x64 OLED screen. The goal is to learn embedded programming by building a real-time game with tasks, timers, signals, and screen rendering.
 
+In short: the player drives a car, avoids obstacles, finishes the road, and tries to get a better score under limited road length.
 
 <h3 align="center">I. Hardware</h3>
 
