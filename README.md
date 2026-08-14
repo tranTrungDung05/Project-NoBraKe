@@ -125,19 +125,23 @@ The score is based on how quickly you finish the race. The more time you have le
 <h3 align="center">III. Game sequence diagram</h3>
 
 ```mermaid
-%%{init: {
-  "theme": "base",
-  "themeVariables": {
-    "lineColor": "#888888",
-    "textColor": "#555555"
-  },
+%%{init: {'theme': 'base', 'themeVariables': { 
+  'primaryColor': '#ffffff', 
+  'primaryBorderColor': '#000000', 
+  'lineColor': '#ffffff', 
+  'textColor': '#000000', 
+  'labelBoxBkgColor': '#ffffff', 
+  'labelBoxBorderColor': '#000000', 
+  'noteBkgColor': '#ffffff', 
+  'noteBorderColor': '#000000', 
+  'noteTextColor': '#000000',
+  'activationBkgColor': '#ffffff',
+  'activationBorderColor': '#000000',
+  'signalColor': '#ffffff',
+  'signalTextColor': '#ffffff',
+  'actorLineColor': '#ffffff'
+}}}%%
 
-  "sequence": {
-    "actorMargin": 50,
-    "noteMargin": 10,
-    "messageAlign": "center"
-  }
-}}%%
 sequenceDiagram
     autonumber
 
