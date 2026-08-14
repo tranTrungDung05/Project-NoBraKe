@@ -52,7 +52,7 @@
     <td><a href="docs/05-signal-execution-flow.md">05-signal-execution-flow.md</a></td>
     <td>Lists active signals and shows the game state machine.</td>
   </tr>
-    <td><a href="docs/06-api-reference.md">07-api-reference.md</a></td>
+    <td><a href="docs/06-api-reference.md">06-api-reference.md</a></td>
     <td>Lists the interfaces used when extending the game.</td>
   </tr>
 </table>
