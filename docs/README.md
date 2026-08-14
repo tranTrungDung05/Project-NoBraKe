@@ -10,8 +10,7 @@ with an STM32L151 microcontroller and a 128x64 monochrome OLED.
 3. [Framework architecture](./03-framework-architecture.md) explains tasks, signals, messages, and rendering ownership.
 4. [Object sequence diagram](./04-object-sequence-diagram.md) shows communication between the game tasks.
 5. [Signal execution flow](./05-signal-execution-flow.md) lists active signals and shows the game state machine.
-6. [Rendering pipeline](./06-rendering-pipeline.md) explains how game data becomes OLED pixels.
-8. [API reference](./07-api-reference.md) lists the interfaces used when extending the game.
+6. [API reference](./06-api-reference.md) lists the interfaces used when extending the game.
 
 ## Source Map
 
