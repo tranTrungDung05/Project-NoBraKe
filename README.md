@@ -23,16 +23,40 @@
 </div>
 <h2 align="center">Documentation</h2>
 
-| File | Description |
-|---|---|
-| [README.md](README.md) | Main project overview, hardware information, gameplay rules, and object descriptions. |
-| [01-pseudo3d-theory.md](docs/01-pseudo3d-theory.md) | Explains projected road lines and the camera. |
-| [02-gameplay-design.md](docs/02-gameplay-design.md) | Explains controls, difficulty, scoring, and screens. |
-| [03-framework-architecture.md](docs/03-framework-architecture.md) | Explains tasks, signals, messages, and rendering ownership. |
-| [04-object-sequence-diagram.md](docs/04-object-sequence-diagram.md) | Shows communication between the game tasks. |
-| [05-signal-execution-flow.md](docs/05-signal-execution-flow.md) | Lists active signals and shows the game state machine. |
-| [06-rendering-pipeline.md](docs/06-rendering-pipeline.md) | Explains how game data becomes OLED pixels. |
-| [07-api-reference.md](docs/07-api-reference.md) | Lists the interfaces used when extending the game. |
+<table align="center" border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width:80%;">
+  <tr>
+    <th>File</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><a href="README.md">README.md</a></td>
+    <td>Main project overview, hardware information, gameplay rules, and object descriptions.</td>
+  </tr>
+  <tr>
+    <td><a href="docs/01-pseudo3d-theory.md">01-pseudo3d-theory.md</a></td>
+    <td>Explains projected road lines and the camera.</td>
+  </tr>
+  <tr>
+    <td><a href="docs/02-gameplay-design.md">02-gameplay-design.md</a></td>
+    <td>Explains controls, difficulty, scoring, and screens.</td>
+  </tr>
+  <tr>
+    <td><a href="docs/03-framework-architecture.md">03-framework-architecture.md</a></td>
+    <td>Explains tasks, signals, messages, and rendering ownership.</td>
+  </tr>
+  <tr>
+    <td><a href="docs/04-object-sequence-diagram.md">04-object-sequence-diagram.md</a></td>
+    <td>Shows communication between the game tasks.</td>
+  </tr>
+  <tr>
+    <td><a href="docs/05-signal-execution-flow.md">05-signal-execution-flow.md</a></td>
+    <td>Lists active signals and shows the game state machine.</td>
+  </tr>
+    <td><a href="docs/06-api-reference.md">07-api-reference.md</a></td>
+    <td>Lists the interfaces used when extending the game.</td>
+  </tr>
+</table>
+
 
 <h2 align="center">Introduction</h2>
 
