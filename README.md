@@ -126,20 +126,20 @@ The score is based on how quickly you finish the race. The more time you have le
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 
-  'primaryColor': '#ffffff', 
-  'primaryBorderColor': '#000000', 
-  'lineColor': '#ffffff', 
-  'textColor': '#000000', 
-  'labelBoxBkgColor': '#ffffff', 
-  'labelBoxBorderColor': '#000000', 
-  'noteBkgColor': '#ffffff', 
-  'noteBorderColor': '#000000', 
-  'noteTextColor': '#000000',
-  'activationBkgColor': '#ffffff',
-  'activationBorderColor': '#000000',
-  'signalColor': '#ffffff',
-  'signalTextColor': '#ffffff',
-  'actorLineColor': '#ffffff'
+  'primaryColor': '#f0f0f0', 
+  'primaryBorderColor': '#444444', 
+  'lineColor': '#FF9800', 
+  'textColor': '##FF9800', 
+  'labelBoxBkgColor': '#e0e0e0', 
+  'labelBoxBorderColor': '#444444', 
+  'noteBkgColor': '#fafafa', 
+  'noteBorderColor': '#666666', 
+  'noteTextColor': '#007ACC',
+  'activationBkgColor': '#e0e0e0',
+  'activationBorderColor': '#444444',
+  'signalColor': '#FF9800',
+  'signalTextColor': '#007ACC',
+  'actorLineColor': '#444444'
 }}}%%
 
 sequenceDiagram
