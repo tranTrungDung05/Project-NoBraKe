@@ -151,26 +151,6 @@ The score is based on how quickly you finish the race. The more time you have le
 
 <h3 align="center">III. Game sequence diagram</h3>
 
-<table align="center">
-  <tr>
-    <td align="center"><img src="hardware/images/sequence_design/game_start_sequence.png" alt="Game start sequence" width="1000"/></td>
-  </tr>
-</table>
-<p align="center"><strong><em>Figure 5:</em></strong> Screen start</p>
-
-<table align="center">
-  <tr>
-    <td align="center"><img src="hardware/images/sequence_design/game_play_sequence.png" alt="Game play sequence" width="1000"/></td>
-  </tr>
-</table>
-<p align="center"><strong><em>Figure 6:</em></strong> Game loop</p>
-
-<table align="center">
-  <tr>
-    <td align="center"><img src="hardware/images/sequence_design/game_reset_sequence.png" alt="Game reset sequence" width="1000"/></td>
-  </tr>
-</table>
-<p align="center"><strong><em>Figure 7:</em></strong> Screen Reset </p>
 
 ## Contact & Support
 
