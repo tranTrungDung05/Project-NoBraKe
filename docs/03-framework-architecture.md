@@ -79,14 +79,11 @@ Game tasks update data; the screen task draws that data.
 The game screen starts a 70 ms periodic timer. While the car is moving, the
 normal update chain is:
 
-```text
-Display timer
-    -> Game screen: NB_GAME_TIME_TICK
-    -> Car: NB_GAME_CAR_UPDATE
-    -> Track: NB_GAME_TRACK_UPDATE
-    -> Obstacle: NB_GAME_OBSTACLE_UPDATE
-    -> Car: NB_GAME_CAR_CHECK_CRASH
-```
+<table align="center">
+  <tr>
+    <td align="center"><img src="../hardware/images/guide/nb_game_update_loop.jpg" alt="No Brake finish" width="480"/></td>
+  </tr>
+</table>
 
 The screen posts steering before the car update when a steering button is
 held. The car changes speed and position, then asks the track to update.
