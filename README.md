@@ -168,22 +168,42 @@ The score is based on how quickly you finish the race. The more time you have le
 <h3 align="center">III. Game sequence diagram</h3>
 
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 
-  'primaryColor': '#f0f0f0', 
-  'primaryBorderColor': '#444444', 
-  'lineColor': '#FF9800', 
-  'textColor': '##FF9800', 
-  'labelBoxBkgColor': '#e0e0e0', 
-  'labelBoxBorderColor': '#444444', 
-  'noteBkgColor': '#fafafa', 
-  'noteBorderColor': '#666666', 
-  'noteTextColor': '#007ACC',
-  'activationBkgColor': '#e0e0e0',
-  'activationBorderColor': '#444444',
-  'signalColor': '#FF9800',
-  'signalTextColor': '#007ACC',
-  'actorLineColor': '#444444'
-}}}%%
+%%{init: {
+  "theme": "base",
+  "themeVariables": {
+    "fontFamily": "Inter, Arial, sans-serif",
+    "fontSize": "17px",
+
+    "primaryColor": "#37474F",
+    "primaryBorderColor": "#90A4AE",
+    "primaryTextColor": "#FFFFFF",
+
+    "lineColor": "#FF9800",
+    "textColor": "#E0E0E0",
+
+    "labelBoxBkgColor": "#37474F",
+    "labelBoxBorderColor": "#90A4AE",
+    "labelTextColor": "#FFFFFF",
+
+    "noteBkgColor": "#263238",
+    "noteBorderColor": "#78909C",
+    "noteTextColor": "#80CBC4",
+
+    "activationBkgColor": "#455A64",
+    "activationBorderColor": "#90A4AE",
+
+    "signalColor": "#FF9800",
+    "signalTextColor": "#80CBC4",
+
+    "actorBkg": "#37474F",
+    "actorBorder": "#90A4AE",
+    "actorTextColor": "#FFFFFF",
+    "actorLineColor": "#90A4AE",
+
+    "loopTextColor": "#80CBC4",
+    "labelBoxTextColor": "#FFFFFF"
+  }
+}}%%
 
 sequenceDiagram
     autonumber
