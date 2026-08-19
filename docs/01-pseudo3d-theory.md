@@ -16,13 +16,13 @@ The examples below show how the road is built step by step.
 
 <table align="center">
   <tr>
-    <td align="center"><img src="../hardware/images/guide/first_line.png" alt="First road line" width="1000"/></td>
+    <td align="center"><img src="../hardware/images/guide/guide-pseudo3d-theory/guide-pseudo3d-theory-first_line.png" alt="First road line" width="1000"/></td>
   </tr>
   <tr>
-    <td align="center"><img src="../hardware/images/guide/second_line.png" alt="Second road line" width="1000"/></td>
+    <td align="center"><img src="../hardware/images/guide/guide-pseudo3d-theory/guide-pseudo3d-theory-second_line.png" alt="Second road line" width="1000"/></td>
   </tr>
   <tr>
-    <td align="center"><img src="../hardware/images/guide/third_line.png" alt="Third road line" width="1000"/></td>
+    <td align="center"><img src="../hardware/images/guide/guide-pseudo3d-theory/guide-pseudo3d-theory-third_line.png" alt="Third road line" width="1000"/></td>
   </tr>
 </table>
 
@@ -30,7 +30,7 @@ As more lines are added, they gradually form the shape of the road.
 
 <table align="center">
   <tr>
-    <td align="center"><img src="../hardware/images/guide/full_road.png" alt="Full road" width="1000"/></td>
+    <td align="center"><img src="../hardware/images/guide/guide-pseudo3d-theory/guide-pseudo3d-theory-full_road.png" alt="Full road" width="1000"/></td>
   </tr>
 </table>
 
@@ -43,7 +43,7 @@ lines, the road appears to bend.
 
 <table align="center">
   <tr>
-    <td align="center"><img src="../hardware/images/guide/curving.png" alt="Curving road" width="1000"/></td>
+    <td align="center"><img src="../hardware/images/guide/guide-pseudo3d-theory/guide-pseudo3d-theory-curving.png" alt="Curving road" width="1000"/></td>
   </tr>
 </table>
 
