@@ -41,9 +41,6 @@ view_screen_t scr_game_settings = {
 
 void scr_game_settings_handle(ak_msg_t *msg) {
 	switch (msg->sig) {
-	case SCREEN_ENTRY: {
-	} break;
-
 	case AC_DISPLAY_BUTTON_MODE_PRESSED: {
 		SCREEN_TRAN(scr_menu_game_handle, &scr_menu_game);
 	} break;

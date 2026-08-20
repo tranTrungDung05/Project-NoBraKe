@@ -307,8 +307,8 @@ void scr_nobrake_game_handle(ak_msg_t *msg) {
 	} break;
 
 	case SCREEN_EXIT: {
-		timer_remove_attr(AC_TASK_DISPLAY_ID, NB_GAME_TIME_TICK);
 		steer_hold = 0;
+		timer_remove_attr(AC_TASK_DISPLAY_ID, NB_GAME_TIME_TICK);
 		task_post_pure_msg(NB_GAME_CAR_ID, NB_GAME_CAR_RESET);
 		task_post_pure_msg(NB_GAME_OBSTACLE_ID, NB_GAME_OBSTACLE_RESET);
 	} break;
