@@ -15,11 +15,11 @@
 #include "buzzer.h"
 
 // Game States
-#define GAME_OFF        (0)
-#define GAME_PLAY       (1)
-#define GAME_OVER       (2)
-#define GAME_WIN        (3)
-#define GAME_FINISHING  (4)
+#define GAME_OFF (0)
+#define GAME_PLAY (1)
+#define GAME_OVER (2)
+#define GAME_WIN (3)
+#define GAME_FINISHING (4)
 
 extern uint8_t game_state;
 

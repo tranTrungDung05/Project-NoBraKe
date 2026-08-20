@@ -4,53 +4,63 @@
 #include <buzzer.h>
 
 const Tone_TypeDef tones_welcome_start[] = {
-	{900, 2},
-	{0, 1},
-	{1400, 2},
-	{0, 1},
-	{2200, 3},
-	{0, 0}
-};
+    {900, 2},
+    {0, 1},
+    {1400, 2},
+    {0, 1},
+    {2200, 3},
+    {0, 0}};
 
 const Tone_TypeDef tones_welcome_enter[] = {
-	{1800, 2},
-	{0, 1},
-	{2600, 2},
-	{0, 0}
-};
+    {1800, 2},
+    {0, 1},
+    {2600, 2},
+    {0, 0}};
 
-volatile       uint32_t          _beep_duration;
-volatile       bool              _tones_playing;
-volatile const Tone_TypeDef     *_tones;
+volatile uint32_t _beep_duration;
+volatile bool _tones_playing;
+volatile const Tone_TypeDef* _tones;
 
 GPIO_InitTypeDef GPIO_InitStructure;
 
-void buzzer_irq( void ) {
-	if (BUZZER_TIM->SR & TIM_SR_UIF) {
+void buzzer_irq(void)
+{
+	if (BUZZER_TIM->SR & TIM_SR_UIF)
+	{
 		BUZZER_TIM->SR &= ~TIM_SR_UIF; // Clear the TIMx's interrupt pending bit
 
 		_beep_duration--;
-		if (_beep_duration == 0) {
-			if (_tones_playing) {
+		if (_beep_duration == 0)
+		{
+			if (_tones_playing)
+			{
 				// Currently playing tones, take next tone
 				_tones++;
-				if (_tones->frequency == 0 && _tones->duration == 0) {
+				if (_tones->frequency == 0 && _tones->duration == 0)
+				{
 					// Last tone in sequence
 					BUZZER_Disable();
 					_tones_playing = false;
 					_tones = NULL;
-				} else {
-					if (_tones->frequency == 0) {
+				}
+				else
+				{
+					if (_tones->frequency == 0)
+					{
 						// Silence period
 						BUZZER_TIM->ARR = SystemCoreClock / (100 * BUZZER_TIM->PSC) - 1;
 						BUZZER_TIM->CCR3 = 0; // 0% duty cycle
 						_beep_duration = _tones->duration + 1;
-					} else {
+					}
+					else
+					{
 						// Play next tone in sequence
-						BUZZER_Enable(_tones->frequency,_tones->duration);
+						BUZZER_Enable(_tones->frequency, _tones->duration);
 					}
 				}
-			} else {
+			}
+			else
+			{
 				BUZZER_Disable();
 			}
 		}
@@ -58,7 +68,8 @@ void buzzer_irq( void ) {
 }
 
 // Initialize buzzer output
-void BUZZER_Init(void) {
+void BUZZER_Init(void)
+{
 	TIM_TimeBaseInitTypeDef TIM_TimeBaseStructure;
 	TIM_OCInitTypeDef TIM_OCInitStructure;
 	NVIC_InitTypeDef NVIC_InitStruct;
@@ -111,10 +122,14 @@ void BUZZER_Init(void) {
 // input:
 //   freq - PWM frequency for buzzer (Hz)
 //   duration - duration of buzzer work (tens ms: 1 -> 10ms sound duration)
-void BUZZER_Enable(uint16_t freq, uint32_t duration) {
-	if (freq < 100 || freq > 8000 || duration == 0) {
+void BUZZER_Enable(uint16_t freq, uint32_t duration)
+{
+	if (freq < 100 || freq > 8000 || duration == 0)
+	{
 		BUZZER_Disable();
-	} else {
+	}
+	else
+	{
 		_beep_duration = (freq / 100) * duration + 1;
 
 		// Configure buzzer pin
@@ -126,12 +141,13 @@ void BUZZER_Enable(uint16_t freq, uint32_t duration) {
 		RCC->APB1ENR |= BUZZER_TIM_PERIPH; // Enable TIMx peripheral
 		BUZZER_TIM->ARR = SystemCoreClock / (freq * BUZZER_TIM->PSC) - 1;
 		BUZZER_TIM->CCR3 = BUZZER_TIM->ARR >> 1; // 50% duty cycle
-		BUZZER_TIM->CR1 |= TIM_CR1_CEN; // Counter enable
+		BUZZER_TIM->CR1 |= TIM_CR1_CEN;          // Counter enable
 	}
 }
 
 // Turn off buzzer
-void BUZZER_Disable(void) {
+void BUZZER_Disable(void)
+{
 	// Counter disable
 	BUZZER_TIM->CR1 &= ~TIM_CR1_CEN;
 	// Disable TIMx peripheral to conserve power
@@ -145,8 +161,9 @@ void BUZZER_Disable(void) {
 // Start playing tones sequence
 // input:
 //   tones - pointer to tones array
-void BUZZER_PlayTones(const Tone_TypeDef * tones) {
+void BUZZER_PlayTones(const Tone_TypeDef* tones)
+{
 	_tones = tones;
 	_tones_playing = true;
-	BUZZER_Enable(_tones->frequency,_tones->duration);
+	BUZZER_Enable(_tones->frequency, _tones->duration);
 }

@@ -3,7 +3,7 @@
  * @author: GaoKong
  * @date:   13/08/2016
  ******************************************************************************
-**/
+ **/
 
 #ifndef __TASK_SHELL_H__
 #define __TASK_SHELL_H__
@@ -11,15 +11,16 @@
 #include "cmd_line.h"
 #include "ring_buffer.h"
 
-#if defined (IF_LINK_UART_EN)
+#if defined(IF_LINK_UART_EN)
 #include "link_phy.h"
 #include "link_hal.h"
 #endif
 
-#define SHELL_BUFFER_LENGHT				(32)
-#define BUFFER_CONSOLE_REV_SIZE			(256)
+#define SHELL_BUFFER_LENGHT (32)
+#define BUFFER_CONSOLE_REV_SIZE (256)
 
-struct shell_t {
+struct shell_t
+{
 	uint8_t index;
 	uint8_t data[SHELL_BUFFER_LENGHT];
 };

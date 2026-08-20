@@ -12,7 +12,8 @@ extern const task_polling_t app_task_polling_table[];
  *  Note: Task id MUST be increasing order.
  */
 /*****************************************************************************/
-enum {
+enum
+{
 	/* SYSTEM TASKS */
 	TASK_TIMER_TICK_ID,
 
@@ -29,10 +30,10 @@ enum {
 	NB_GAME_TRACK_ID,
 	NB_GAME_OBSTACLE_ID,
 	NB_GAME_CAR_ID,
-	NB_GAME_SCREEN_ID,	
+	NB_GAME_SCREEN_ID,
 
-	/* LINK */
-#if defined (IF_LINK_UART_EN)
+/* LINK */
+#if defined(IF_LINK_UART_EN)
 	AC_LINK_PHY_ID,
 	AC_LINK_MAC_ID,
 	AC_LINK_ID,
@@ -47,7 +48,8 @@ enum {
  *  Note: Task id MUST be increasing order.
  */
 /*****************************************************************************/
-enum {
+enum
+{
 	/* APP TASKS */
 	AC_TASK_POLLING_CONSOLE_ID,
 

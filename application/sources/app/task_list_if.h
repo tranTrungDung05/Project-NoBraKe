@@ -1,7 +1,8 @@
 #ifndef __TASK_LIST_IF_H__
 #define __TASK_LIST_IF_H__
 
-enum {
+enum
+{
 	/* SYSTEM TASKS */
 	AK_TASK_TIMER_ID,
 

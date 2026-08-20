@@ -5,102 +5,111 @@
 #include "sys_dbg.h"
 
 /* WINBOND commands */
-#define WINBOND_W_EN						0x06	//write enable
-#define WINBOND_W_DE						0x04	//write disable
-#define WINBOND_R_SR1						0x05	//read status reg 1
-#define WINBOND_R_SR2						0x35	//read status reg 2
-#define WINBOND_W_SR						0x01	//write status reg
-#define WINBOND_PAGE_PGM					0x02	//page program
-#define WINBOND_QPAGE_PGM					0x32	//quad input page program
-#define WINBOND_BLK_E_64K					0xD8	//block erase 64KB
-#define WINBOND_BLK_E_32K					0x52	//block erase 32KB
-#define WINBOND_SECTOR_E					0x20	//sector erase 4KB
-#define WINBOND_CHIP_ERASE					0xc7	//chip erase
-#define WINBOND_CHIP_ERASE2					0x60	//=CHIP_ERASE
-#define WINBOND_E_SUSPEND					0x75	//erase suspend
-#define WINBOND_E_RESUME					0x7a	//erase resume
-#define WINBOND_PDWN						0xb9	//power down
-#define WINBOND_HIGH_PERF_M					0xa3	//high performance mode
-#define WINBOND_CONT_R_RST					0xff	//continuous read mode reset
-#define WINBOND_RELEASE						0xab	//release power down or HPM/Dev ID (deprecated)
-#define WINBOND_R_MANUF_ID					0x90	//read Manufacturer and Dev ID (deprecated)
-#define WINBOND_R_UNIQUE_ID					0x4b	//read unique ID (suggested)
-#define WINBOND_R_JEDEC_ID					0x9f	//read JEDEC ID = Manuf+ID (suggested)
-#define WINBOND_READ						0x03
-#define WINBOND_FAST_READ					0x0b
-#define WINBOND_READ_STATUS_REG_1			0x05
+#define WINBOND_W_EN 0x06        // write enable
+#define WINBOND_W_DE 0x04        // write disable
+#define WINBOND_R_SR1 0x05       // read status reg 1
+#define WINBOND_R_SR2 0x35       // read status reg 2
+#define WINBOND_W_SR 0x01        // write status reg
+#define WINBOND_PAGE_PGM 0x02    // page program
+#define WINBOND_QPAGE_PGM 0x32   // quad input page program
+#define WINBOND_BLK_E_64K 0xD8   // block erase 64KB
+#define WINBOND_BLK_E_32K 0x52   // block erase 32KB
+#define WINBOND_SECTOR_E 0x20    // sector erase 4KB
+#define WINBOND_CHIP_ERASE 0xc7  // chip erase
+#define WINBOND_CHIP_ERASE2 0x60 //=CHIP_ERASE
+#define WINBOND_E_SUSPEND 0x75   // erase suspend
+#define WINBOND_E_RESUME 0x7a    // erase resume
+#define WINBOND_PDWN 0xb9        // power down
+#define WINBOND_HIGH_PERF_M 0xa3 // high performance mode
+#define WINBOND_CONT_R_RST 0xff  // continuous read mode reset
+#define WINBOND_RELEASE 0xab     // release power down or HPM/Dev ID (deprecated)
+#define WINBOND_R_MANUF_ID 0x90  // read Manufacturer and Dev ID (deprecated)
+#define WINBOND_R_UNIQUE_ID 0x4b // read unique ID (suggested)
+#define WINBOND_R_JEDEC_ID 0x9f  // read JEDEC ID = Manuf+ID (suggested)
+#define WINBOND_READ 0x03
+#define WINBOND_FAST_READ 0x0b
+#define WINBOND_READ_STATUS_REG_1 0x05
 
-#define WINBOND_SR1_BUSY_MASK				0x01
-#define WINBOND_SR1_WEN_MASK				0x02
+#define WINBOND_SR1_BUSY_MASK 0x01
+#define WINBOND_SR1_WEN_MASK 0x02
 
-#define WINBOND_WINBOND_MANUF				0xef
+#define WINBOND_WINBOND_MANUF 0xef
 
-#define WINBOND_DEFAULT_TIMEOUT				200
+#define WINBOND_DEFAULT_TIMEOUT 200
 
 /* flash enable debug */
-#define FLASH_DBG_EN						0
+#define FLASH_DBG_EN 0
 
 /******************************************************************************
-* declare static function
-*******************************************************************************/
+ * declare static function
+ *******************************************************************************/
 static void flash_set_write_enable(bool);
 static uint8_t flash_wait_to_idle();
 
 /******************************************************************************
-* define static function
-*******************************************************************************/
-void flash_set_write_enable(bool e) {
+ * define static function
+ *******************************************************************************/
+void flash_set_write_enable(bool e)
+{
 	flash_cs_low();
 
-	if (e == true) {
+	if (e == true)
+	{
 		flash_transfer(WINBOND_W_EN);
 	}
-	else {
+	else
+	{
 		flash_transfer(WINBOND_W_DE);
 	}
 
 	flash_cs_high();
 }
 
-uint8_t flash_wait_to_idle() {
+uint8_t flash_wait_to_idle()
+{
 	uint8_t reg_1 = 0;
-	uint32_t time_out_counter = 10000;	/* 10s */
+	uint32_t time_out_counter = 10000; /* 10s */
 
 	flash_cs_low();
 
 	flash_transfer(WINBOND_READ_STATUS_REG_1);
 
-	do {
+	do
+	{
 		reg_1 = flash_transfer(0x00);
-		if (reg_1 & WINBOND_SR1_BUSY_MASK) {
-			time_out_counter --;
+		if (reg_1 & WINBOND_SR1_BUSY_MASK)
+		{
+			time_out_counter--;
 			sys_ctrl_delay_us(100);
 		}
-		else {
+		else
+		{
 			break;
 		}
 	} while (time_out_counter);
 
 	flash_cs_high();
 
-	if (time_out_counter) {
+	if (time_out_counter)
+	{
 		return FLASH_DRIVER_OK;
 	}
 
 	return FLASH_DRIVER_NG;
 }
 
-
 /******************************************************************************
-* define public function
-*******************************************************************************/
-uint8_t flash_is_connected() {
+ * define public function
+ *******************************************************************************/
+uint8_t flash_is_connected()
+{
 	uint8_t ret = FLASH_DRIVER_NG;
 
 	flash_cs_low();
 
 	flash_transfer(WINBOND_R_JEDEC_ID);
-	if (flash_transfer(0x00) == WINBOND_WINBOND_MANUF) {
+	if (flash_transfer(0x00) == WINBOND_WINBOND_MANUF)
+	{
 		ret = FLASH_DRIVER_OK;
 	}
 
@@ -109,12 +118,14 @@ uint8_t flash_is_connected() {
 	return ret;
 }
 
-uint8_t flash_read(uint32_t address, uint8_t* pbuf, uint32_t len) {
+uint8_t flash_read(uint32_t address, uint8_t* pbuf, uint32_t len)
+{
 #if (FLASH_DBG_EN == 1)
 	SYS_DBG("[flash_read] add:0x%x\t%d\n", address, len);
 #endif
 
-	if (flash_is_connected() != FLASH_DRIVER_OK) {
+	if (flash_is_connected() != FLASH_DRIVER_OK)
+	{
 		return FLASH_DRIVER_NG;
 	}
 
@@ -128,7 +139,8 @@ uint8_t flash_read(uint32_t address, uint8_t* pbuf, uint32_t len) {
 	flash_transfer(address >> 8);
 	flash_transfer(address);
 
-	for(uint16_t i = 0; i < len; i++) {
+	for (uint16_t i = 0; i < len; i++)
+	{
 		pbuf[i] = flash_transfer(0x00);
 	}
 
@@ -137,7 +149,8 @@ uint8_t flash_read(uint32_t address, uint8_t* pbuf, uint32_t len) {
 	return FLASH_DRIVER_OK;
 }
 
-uint8_t flash_write(uint32_t address, uint8_t* pbuf, uint32_t len) {
+uint8_t flash_write(uint32_t address, uint8_t* pbuf, uint32_t len)
+{
 	bool next_page_flag = true;
 	uint32_t pbuf_index = 0;
 
@@ -145,12 +158,15 @@ uint8_t flash_write(uint32_t address, uint8_t* pbuf, uint32_t len) {
 	SYS_DBG("[flash_write] addr:0x%x\t%d\n", address, len);
 #endif
 
-	if (flash_is_connected() != FLASH_DRIVER_OK) {
+	if (flash_is_connected() != FLASH_DRIVER_OK)
+	{
 		return FLASH_DRIVER_NG;
 	}
 
-	while (len) {
-		if (next_page_flag) {
+	while (len)
+	{
+		if (next_page_flag)
+		{
 			next_page_flag = false;
 
 			flash_wait_to_idle();
@@ -170,9 +186,11 @@ uint8_t flash_write(uint32_t address, uint8_t* pbuf, uint32_t len) {
 		address++;
 		len--;
 
-		if ((address & 0xff) == 0) {
+		if ((address & 0xff) == 0)
+		{
 			next_page_flag = true;
-			if (len) {
+			if (len)
+			{
 				flash_cs_high();
 			}
 		}
@@ -183,8 +201,10 @@ uint8_t flash_write(uint32_t address, uint8_t* pbuf, uint32_t len) {
 	return flash_wait_to_idle();
 }
 
-uint8_t flash_erase_sector(uint32_t address) {
-	if (address % FLASH_SECTOR_SIZE) {
+uint8_t flash_erase_sector(uint32_t address)
+{
+	if (address % FLASH_SECTOR_SIZE)
+	{
 		return FLASH_DRIVER_NG;
 	}
 
@@ -192,7 +212,8 @@ uint8_t flash_erase_sector(uint32_t address) {
 	SYS_DBG("[flash_erase_sector] addr:0x%x\n", address);
 #endif
 
-	if (flash_is_connected() != FLASH_DRIVER_OK) {
+	if (flash_is_connected() != FLASH_DRIVER_OK)
+	{
 		return FLASH_DRIVER_NG;
 	}
 
@@ -212,8 +233,10 @@ uint8_t flash_erase_sector(uint32_t address) {
 	return flash_wait_to_idle();
 }
 
-uint8_t flash_erase_block_32k(uint32_t address) {
-	if (address % FLASH_BLOCK_32K_SIZE) {
+uint8_t flash_erase_block_32k(uint32_t address)
+{
+	if (address % FLASH_BLOCK_32K_SIZE)
+	{
 		return FLASH_DRIVER_NG;
 	}
 
@@ -221,7 +244,8 @@ uint8_t flash_erase_block_32k(uint32_t address) {
 	SYS_DBG("[flash_erase_block_32k] addr:0x%x\n", address);
 #endif
 
-	if (flash_is_connected() != FLASH_DRIVER_OK) {
+	if (flash_is_connected() != FLASH_DRIVER_OK)
+	{
 		return FLASH_DRIVER_NG;
 	}
 
@@ -241,8 +265,10 @@ uint8_t flash_erase_block_32k(uint32_t address) {
 	return flash_wait_to_idle();
 }
 
-uint8_t flash_erase_block_64k(uint32_t address) {
-	if (address % FLASH_BLOCK_64K_SIZE) {
+uint8_t flash_erase_block_64k(uint32_t address)
+{
+	if (address % FLASH_BLOCK_64K_SIZE)
+	{
 		return FLASH_DRIVER_NG;
 	}
 
@@ -250,7 +276,8 @@ uint8_t flash_erase_block_64k(uint32_t address) {
 	SYS_DBG("[flash_erase_block_64k] addr:0x%x\n", address);
 #endif
 
-	if (flash_is_connected() != FLASH_DRIVER_OK) {
+	if (flash_is_connected() != FLASH_DRIVER_OK)
+	{
 		return FLASH_DRIVER_NG;
 	}
 
@@ -270,12 +297,14 @@ uint8_t flash_erase_block_64k(uint32_t address) {
 	return flash_wait_to_idle();
 }
 
-uint8_t  flash_erase_full() {
+uint8_t flash_erase_full()
+{
 #if (FLASH_DBG_EN == 1)
 	SYS_DBG("[flash_erase_full]\n");
 #endif
 
-	if (flash_is_connected() != FLASH_DRIVER_OK) {
+	if (flash_is_connected() != FLASH_DRIVER_OK)
+	{
 		return FLASH_DRIVER_NG;
 	}
 
@@ -291,6 +320,7 @@ uint8_t  flash_erase_full() {
 	return flash_wait_to_idle();
 }
 
-uint8_t flash_erase_synchronous() {
+uint8_t flash_erase_synchronous()
+{
 	return flash_wait_to_idle();
 }

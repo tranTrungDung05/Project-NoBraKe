@@ -25,7 +25,7 @@ extern view_dynamic_t dyn_view_menu;
 extern view_screen_t scr_menu_game;
 extern void scr_menu_game_handle(ak_msg_t* msg);
 
-//scr_nobrake_game
+// scr_nobrake_game
 extern view_dynamic_t dyn_view_item_nobrake_game;
 extern view_screen_t scr_nobrake_game;
 extern void scr_nobrake_game_handle(ak_msg_t* msg);

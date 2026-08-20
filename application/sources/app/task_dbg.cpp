@@ -15,8 +15,10 @@
 #include "task_list_if.h"
 #include "task_dbg.h"
 
-void task_dbg(ak_msg_t* msg) {
-	switch (msg->sig) {
+void task_dbg(ak_msg_t* msg)
+{
+	switch (msg->sig)
+	{
 	default:
 		break;
 	}
