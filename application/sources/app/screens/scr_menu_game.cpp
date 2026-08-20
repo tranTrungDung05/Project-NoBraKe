@@ -1,7 +1,4 @@
 #include "scr_menu_game.h"
-#include "screens.h"
-#include "screens_bitmap.h"
-#include "timer.h"
 
 #define MENU_ITEM_COUNT   (4)
 #define MENU_VISIBLE      (3)

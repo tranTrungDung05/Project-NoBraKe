@@ -1,6 +1,4 @@
 #include "nb_game_car.h"
-#include "nb_game_track.h"
-#include "nb_game_obstacle.h"
 
 nb_game_car_t car;
 

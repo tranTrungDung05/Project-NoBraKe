@@ -1,7 +1,4 @@
 #include "nb_game_track.h"
-#include "nb_game_car.h"
-#include "nb_game_obstacle.h"
-#include <stdlib.h>
 
 nb_game_track_t track;
 nb_game_line_t view_lines[NB_GAME_VISIBLE_LINES];

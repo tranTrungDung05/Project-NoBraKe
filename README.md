@@ -1,4 +1,16 @@
-<h1 align="center">No Brake - Game built on AK Embedded Base Kit</h1>
+<div align="center">
+  
+![Repo Traffic](https://komarev.com/ghpvc/?username=Project-NoBraKe&label=Repo+Traffic&color=blue&style=flat-square)
+
+</div>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/framework-Active%20Kernel-blue?style=flat-square" alt="Framework">
+  <img src="https://img.shields.io/badge/hardware-AK%20Base%20Kit-blue?style=flat-square" alt="Hardware">
+  <img src="https://img.shields.io/badge/mcu-STM32L151-blue?style=flat-square" alt="MCU">
+</p>
+
+<h1>No Brake - Game built on AK Embedded Base Kit</h1>
 
 <table align="center">
   <tr>
@@ -12,7 +24,7 @@
   </tr>
 </table>
 
-<h2 align="center">Gameplay Demo</h2>
+<h2>Gameplay Demo</h2>
 
 <div align="center">
   <video
@@ -21,7 +33,7 @@
     width="720"
   ></video>
 </div>
-<h2 align="center">Documentation</h2>
+<h2>Documentation</h2>
 
 <table align="center" border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width:80%;">
   <tr>
@@ -58,28 +70,28 @@
 </table>
 
 
-<h2 align="center">Introduction</h2>
+<h2>Introduction</h2>
 
 This project is a simple racing game built for the AK Embedded Base Kit using an STM32L151 microcontroller and a 128x64 OLED screen. The goal is to learn embedded programming by building a real-time game with tasks, timers, signals, and screen rendering.
 
 In short: the player drives a car, avoids obstacles, finishes the road, and tries to get a better score under limited road length.
 
-<h3 align="center">I. Hardware</h3>
+<h3>I. Hardware</h3>
 
 <p align="center">
   <a href="https://epcb.vn/products/ak-embedded-base-kit-lap-trinh-nhung-vi-dieu-khien-mcu"><img src="hardware/images/board/ak-embedded-base-kit-version-3.jpg" width="480"/></a>
 </p>
-
+<p align="center"><strong><em>Figure 1:</em></strong> AK Embedded Base Kit - STM32L151</p>
 
 [AK Embedded Base Kit](https://epcb.vn/products/ak-embedded-base-kit-lap-trinh-nhung-vi-dieu-khien-mcu) is an evaluation kit aimed at intermediate and advanced embedded software learners. *You can learn more in the following link:*  [ak-base-kit-stm32l151](https://github.com/the-ak-foundation/ak-base-kit-stm32l151)
 
-<h3 align="center">II. How to Play</h3>
+<h3>II. How to Play</h3>
 <table align="center">
   <tr>
     <td align="center"><img src="hardware/images/screen/scr_game_welcome.gif" alt="No Brake welcome" width="480"/></td>
   </tr>
 </table>
-<p align="center"><strong><em>Figure 1:</em></strong> Welcome screen</p>
+<p align="center"><strong><em>Figure 2:</em></strong> Welcome screen</p>
 
 The game opens on the **Menu**, which offers the following options:
 
@@ -93,7 +105,7 @@ The game opens on the **Menu**, which offers the following options:
     <td align="center"><img src="hardware/images/screen/scr_game_play.png" alt="No Brake gameplay" width="480"/></td>
   </tr>
 </table>
-<p align="center"><strong><em>Figure 2:</em></strong> Gameplay screen</p>
+<p align="center"><strong><em>Figure 3:</em></strong> Gameplay screen</p>
 
 
 The board provides three buttons:
@@ -124,14 +136,14 @@ The player wins when reaching the track length. The car then uses the finish-bra
     <td align="center"><img src="hardware/images/screen/scr_game_finish.gif" alt="No Brake finish" width="480"/></td>
   </tr>
 </table>
-<p align="center"><strong><em>Figure 3:</em></strong> Finish screen</p>
+<p align="center"><strong><em>Figure 4:</em></strong> Finish screen</p>
 
 <table align="center">
   <tr>
     <td align="center"><img src="hardware/images/screen/scr_game_over.png" alt="No Brake finish" width="480"/></td>
   </tr>
 </table>
-<p align="center"><strong><em>Figure 4:</em></strong> Game over screen</p>
+<p align="center"><strong><em>Figure 5:</em></strong> Game over screen</p>
 
 
 Difficulty is changed from the Settings screen with `UP` and `DOWN`.
@@ -151,7 +163,7 @@ possible only while the car has a positive speed.
     <td align="center"><img src="hardware/images/screen/scr_game_charts.png" alt="No Brake score" width="480"/></td>
   </tr>
 </table>
-<p align="center"><strong><em>Figure 5:</em></strong> Score screen</p>
+<p align="center"><strong><em>Figure 6:</em></strong> Score screen</p>
 
 The score is based on how quickly you finish the race. The more time you have left, the higher your score. Higher difficulty levels also apply a multiplier to the final score.
 
@@ -166,7 +178,7 @@ The score is based on how quickly you finish the race. The more time you have le
 | **Cloud**  | <img src="hardware/images/bitmap/bitmap_cloud.png" width="100"/> | Decorative cloud sprite in the background. |
 | **Tree**   | <img src="hardware/images/bitmap/bitmap_tree.png" width="100"/> | Roadside tree decoration object. |
 
-<h3 align="center">III. Game sequence diagram</h3>
+<h3>III. Game sequence diagram</h3>
 
 ```mermaid
 %%{init: {
@@ -323,7 +335,7 @@ sequenceDiagram
     Note right of Obs: Clear obstacle ring buffer
     deactivate Obs
 ```
-<p align="center"><strong><em>Figure 6:</em></strong> Basic game sequences </p>
+<p align="center"><strong><em>Figure 7:</em></strong> Basic game sequences </p>
 
 ## Contact & Support
 

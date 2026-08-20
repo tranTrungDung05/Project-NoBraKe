@@ -1,8 +1,5 @@
 #include "nb_game_obstacle.h"
 
-#include "nb_game_track.h"
-#include <string.h>
-
 nb_game_obstacle_t nb_game_obstacles[NB_GAME_OBSTACLE_COUNT];
 uint8_t NB_GAME_OBSTACLE_VISIBLE;
 

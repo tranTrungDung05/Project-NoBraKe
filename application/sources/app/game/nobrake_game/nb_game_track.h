@@ -7,6 +7,10 @@
 #include "timer.h"
 #include "app.h"
 #include "task_list.h"
+#include <stdlib.h>
+
+#include "nb_game_car.h"
+#include "nb_game_obstacle.h"
 
 #define NB_GAME_VISIBLE_LINES       (24)
 #define NB_GAME_SEGMENT_LENGTH      (200)
@@ -27,21 +31,21 @@ typedef struct {
 
 typedef struct {
     int32_t z;
+    int16_t x;
+    int16_t y;
     int8_t side;
     uint8_t active;
     uint8_t view_index;
     uint8_t size;
-    int16_t x;
-    int16_t y;
 } nb_game_tree_t;
 
 typedef struct {
-    int16_t camX;
-    int16_t player_center_x;
-    int16_t player_half_width;
     int32_t pos;
     int32_t length;
     uint32_t elapsed_ms;
+    int16_t camX;
+    int16_t player_center_x;
+    int16_t player_half_width;
     uint16_t time_limit_s;
 } nb_game_track_t;
 
@@ -57,8 +61,6 @@ uint8_t nb_game_settings_get_difficulty(void);
 uint8_t nb_game_settings_get_obstacle_max(void);
 void nb_game_settings_change_difficulty(int8_t delta);
 
-
-
 void nb_game_track_handle(ak_msg_t *msg);
 
-#endif
+#endif //__NB_GAME_TRACK_H__

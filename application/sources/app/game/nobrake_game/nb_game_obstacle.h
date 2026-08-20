@@ -3,8 +3,10 @@
 
 #include "fsm.h"
 #include "message.h"
-
 #include "app.h"
+
+#include "nb_game_track.h"
+#include <string.h>
 
 #define NB_GAME_OBSTACLE_COUNT      (4)
 #define NB_GAME_OBSTACLE_W          (8)

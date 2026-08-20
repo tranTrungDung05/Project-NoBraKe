@@ -1,10 +1,4 @@
 #include "scr_nobrake_game.h"
-#include "nb_game_track.h"
-#include "nb_game_car.h"
-#include "nb_game_obstacle.h"
-#include "scr_game_score.h"
-#include "screens_bitmap.h"
-#include "buzzer.h"
 
 uint8_t game_state;
 static int8_t steer_hold;

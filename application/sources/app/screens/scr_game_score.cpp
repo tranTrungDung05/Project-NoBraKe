@@ -1,5 +1,4 @@
 #include "scr_game_score.h"
-#include "nb_game_track.h"
 
 static uint16_t best_scores[NB_GAME_SCORE_COUNT];
 

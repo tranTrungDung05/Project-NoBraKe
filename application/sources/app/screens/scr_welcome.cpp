@@ -1,7 +1,4 @@
 #include "scr_welcome.h"
-#include "screens.h"
-#include "screens_bitmap.h"
-#include "buzzer.h"
 
 static uint8_t welcome_frame;
 

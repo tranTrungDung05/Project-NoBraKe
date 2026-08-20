@@ -1,8 +1,4 @@
 #include "scr_game_finish.h"
-#include "app.h"
-#include "screens.h"
-#include "scr_game_score.h"
-#include "timer.h"
 
 #define FINISH_ANIM_INTERVAL (120)
 

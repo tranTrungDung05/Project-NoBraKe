@@ -7,6 +7,13 @@
 #include "view_render.h"
 #include "screens.h"
 
+#include "nb_game_track.h"
+#include "nb_game_car.h"
+#include "nb_game_obstacle.h"
+#include "scr_game_score.h"
+#include "screens_bitmap.h"
+#include "buzzer.h"
+
 // Game States
 #define GAME_OFF        (0)
 #define GAME_PLAY       (1)
@@ -20,4 +27,4 @@ extern view_dynamic_t dyn_view_item_nobrake_game;
 extern view_screen_t scr_nobrake_game;
 extern void scr_nobrake_game_handle(ak_msg_t* msg);
 
-#endif
+#endif //__SCR_NOBRAKE_GAME_H__

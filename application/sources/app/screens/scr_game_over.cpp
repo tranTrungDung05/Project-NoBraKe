@@ -1,5 +1,4 @@
 #include "scr_game_over.h"
-#include "screens.h"
 
 static void view_scr_game_over(void) {
     view_render.drawRoundRect(3, 3, 122, 58, 4, WHITE);

@@ -6,8 +6,13 @@
 #include "task_display.h"
 #include "view_render.h"
 
+#include "app.h"
+#include "screens.h"
+#include "scr_game_score.h"
+#include "timer.h"
+
 extern view_dynamic_t dyn_view_item_game_finish;
 extern view_screen_t scr_game_finish;
 extern void scr_game_finish_handle(ak_msg_t* msg);
 
-#endif
+#endif //__SCR_GAME_FINISH_H__

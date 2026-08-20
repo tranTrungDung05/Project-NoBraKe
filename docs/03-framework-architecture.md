@@ -81,7 +81,7 @@ normal update chain is:
 
 <table align="center">
   <tr>
-    <td align="center"><img src="../hardware/images/guide/nb_game_update_loop.jpg" alt="No Brake finish" width="480"/></td>
+    <td align="center"><img src="../hardware/images/guide/guide-pseudo3d-theory/guide-pseudo3d-theory-nb_game_update_loop.jpg" alt="No Brake game update loop" width="480"/></td>
   </tr>
 </table>
 

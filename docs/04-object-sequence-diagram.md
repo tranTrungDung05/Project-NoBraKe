@@ -62,7 +62,7 @@ sequenceDiagram
     end
 ```
 
-<p align="center"><strong><em>Figure 1:</em></strong> How the car object works</p>
+<p><strong><em>Figure 1:</em></strong> How the car object works</p>
 
 When MODE is held, the screen sends the throttle message. When MODE is
 released, the car slowly goes down speed.
@@ -97,7 +97,7 @@ sequenceDiagram
     deactivate Trk
 ```
 
-<p align="center"><strong><em>Figure 2:</em></strong> How the road object works</p>
+<p><strong><em>Figure 2:</em></strong> How the road object works</p>
 
 ## 3. Obstacle Sequence
 
@@ -138,7 +138,7 @@ sequenceDiagram
     deactivate Car
 ```
 
-<p align="center"><strong><em>Figure 3:</em></strong> How the obstacle object works</p>
+<p><strong><em>Figure 3:</em></strong> How the obstacle object works</p>
 
 The car checks collision after the obstacle task finishes, so it checks the
 new obstacle position instead of the old position.

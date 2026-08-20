@@ -9,6 +9,9 @@
 #include "task_list.h"
 #include "task_display.h"
 
+#include "nb_game_track.h"
+#include "nb_game_obstacle.h"
+
 #define NB_GAME_CAR_W       (24)
 #define NB_GAME_CAR_H       (24)
 #define BASE_STEER_STEP     (4)
@@ -33,4 +36,4 @@ extern nb_game_car_t car;
 
 void nb_game_car_handle(ak_msg_t *msg);
 
-#endif
+#endif //__NB_GAME_CAR_H__

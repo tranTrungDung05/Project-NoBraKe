@@ -1,5 +1,4 @@
 #include "scr_game_settings.h"
-#include "nb_game_track.h"
 
 static void draw_difficulty_card(int16_t x, uint8_t width, int16_t label_x,
                                  const char *label, uint8_t selected) {
