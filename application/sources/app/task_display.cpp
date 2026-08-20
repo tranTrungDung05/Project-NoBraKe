@@ -11,7 +11,6 @@
 
 scr_mng_t scr_mng_app;
 
-void task_display(ak_msg_t* msg)
-{
+void task_display(ak_msg_t *msg) {
 	scr_mng_dispatch(msg);
 }

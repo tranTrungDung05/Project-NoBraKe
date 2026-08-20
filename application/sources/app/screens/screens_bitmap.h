@@ -16,4 +16,4 @@ extern const unsigned char PROGMEM bitmap_obstacle_stone[];
 extern const unsigned char PROGMEM bitmap_obstacle_barrier[];
 extern const unsigned char PROGMEM bitmap_obstacle_car[];
 
-#endif //__SCREENS_BITMAP_H__
+#endif	  //__SCREENS_BITMAP_H__

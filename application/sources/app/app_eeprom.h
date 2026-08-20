@@ -11,6 +11,6 @@
  *****************************************************************************
  */
 #define EEPROM_START_ADDR (0X0000)
-#define EEPROM_END_ADDR (0X1000)
+#define EEPROM_END_ADDR	  (0X1000)
 
-#endif //__APP_EEPROM_H__
+#endif	  //__APP_EEPROM_H__

@@ -5,4 +5,4 @@
 
 extern uint32_t sys_soft_reboot_counter;
 
-#endif //__APP_NON_CLEAR_RAM_H__
+#endif	  //__APP_NON_CLEAR_RAM_H__

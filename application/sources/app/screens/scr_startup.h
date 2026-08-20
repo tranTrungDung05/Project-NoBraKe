@@ -19,6 +19,6 @@
 
 extern view_dynamic_t dyn_view_startup;
 extern view_screen_t scr_startup;
-extern void scr_startup_handle(ak_msg_t* msg);
+extern void scr_startup_handle(ak_msg_t *msg);
 
-#endif //__SCR_STARTUP_H__
+#endif	  //__SCR_STARTUP_H__

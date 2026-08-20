@@ -16,11 +16,10 @@
 #include "link_hal.h"
 #endif
 
-#define SHELL_BUFFER_LENGHT (32)
+#define SHELL_BUFFER_LENGHT		(32)
 #define BUFFER_CONSOLE_REV_SIZE (256)
 
-struct shell_t
-{
+struct shell_t {
 	uint8_t index;
 	uint8_t data[SHELL_BUFFER_LENGHT];
 };
@@ -32,4 +31,4 @@ extern const cmd_line_t lgn_cmd_table[];
 extern uint8_t buffer_console_rev[];
 extern ring_buffer_char_t ring_buffer_console_rev;
 
-#endif //__TASK_SHELL_H__
+#endif	  //__TASK_SHELL_H__

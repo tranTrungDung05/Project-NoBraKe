@@ -12,8 +12,7 @@ extern const task_polling_t app_task_polling_table[];
  *  Note: Task id MUST be increasing order.
  */
 /*****************************************************************************/
-enum
-{
+enum {
 	/* SYSTEM TASKS */
 	TASK_TIMER_TICK_ID,
 
@@ -48,8 +47,7 @@ enum
  *  Note: Task id MUST be increasing order.
  */
 /*****************************************************************************/
-enum
-{
+enum {
 	/* APP TASKS */
 	AC_TASK_POLLING_CONSOLE_ID,
 
@@ -62,26 +60,26 @@ enum
  */
 /*****************************************************************************/
 /* APP TASKS */
-extern void task_system(ak_msg_t*);
-extern void task_fw(ak_msg_t*);
-extern void task_shell(ak_msg_t*);
-extern void task_life(ak_msg_t*);
-extern void task_if(ak_msg_t*);
-extern void task_uart_if(ak_msg_t*);
-extern void task_display(ak_msg_t*);
+extern void task_system(ak_msg_t *);
+extern void task_fw(ak_msg_t *);
+extern void task_shell(ak_msg_t *);
+extern void task_life(ak_msg_t *);
+extern void task_if(ak_msg_t *);
+extern void task_uart_if(ak_msg_t *);
+extern void task_display(ak_msg_t *);
 
 /* NOBRAKE GAME HANDLE */
-extern void nb_game_track_handle(ak_msg_t*);
-extern void nb_game_obstacle_handle(ak_msg_t*);
-extern void nb_game_car_handle(ak_msg_t*);
-extern void scr_nobrake_game_handle(ak_msg_t*);
-extern void scr_game_score_handle(ak_msg_t*);
-extern void scr_game_settings_handle(ak_msg_t*);
+extern void nb_game_track_handle(ak_msg_t *);
+extern void nb_game_obstacle_handle(ak_msg_t *);
+extern void nb_game_car_handle(ak_msg_t *);
+extern void scr_nobrake_game_handle(ak_msg_t *);
+extern void scr_game_score_handle(ak_msg_t *);
+extern void scr_game_settings_handle(ak_msg_t *);
 
 /* LINK TASK */
-extern void task_link_phy(ak_msg_t*);
-extern void task_link_mac(ak_msg_t*);
-extern void task_link(ak_msg_t*);
+extern void task_link_phy(ak_msg_t *);
+extern void task_link_mac(ak_msg_t *);
+extern void task_link(ak_msg_t *);
 
 /*****************************************************************************/
 /*  DECLARE: Task polling
@@ -90,4 +88,4 @@ extern void task_link(ak_msg_t*);
 extern void task_polling_console();
 extern void task_debug_pools();
 
-#endif //__TASK_LIST_H__
+#endif	  //__TASK_LIST_H__

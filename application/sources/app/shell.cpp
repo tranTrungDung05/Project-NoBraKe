@@ -50,35 +50,35 @@
  */
 /*****************************************************************************/
 #define STR_LIST_MAX_SIZE 8
-#define STR_BUFFER_SIZE 128
+#define STR_BUFFER_SIZE	  128
 
 static char cmd_buffer[STR_BUFFER_SIZE];
-static char* str_list[STR_LIST_MAX_SIZE];
+static char *str_list[STR_LIST_MAX_SIZE];
 static uint8_t str_list_len;
 
-static uint8_t str_parser(char* str);
-static char* str_parser_get_attr(uint8_t);
+static uint8_t str_parser(char *str);
+static char *str_parser_get_attr(uint8_t);
 
 /*****************************************************************************/
 /*  command function declare
  */
 /*****************************************************************************/
-int32_t shell_reset(uint8_t* argv);
-int32_t shell_ver(uint8_t* argv);
-int32_t shell_help(uint8_t* argv);
-int32_t shell_reboot(uint8_t* argv);
-int32_t shell_ram(uint8_t* argv);
-int32_t shell_fatal(uint8_t* argv);
-int32_t shell_stt(uint8_t* argv);
-int32_t shell_epi(uint8_t* argv);
-int32_t shell_eps(uint8_t* argv);
-int32_t shell_flash(uint8_t* argv);
-int32_t shell_lcd(uint8_t* argv);
-int32_t shell_dbg(uint8_t* argv);
-int32_t shell_boot(uint8_t* argv);
-int32_t shell_fwu(uint8_t* argv);
-int32_t shell_psv(uint8_t* argv);
-int32_t shell_buzzer(uint8_t* argv);
+int32_t shell_reset(uint8_t *argv);
+int32_t shell_ver(uint8_t *argv);
+int32_t shell_help(uint8_t *argv);
+int32_t shell_reboot(uint8_t *argv);
+int32_t shell_ram(uint8_t *argv);
+int32_t shell_fatal(uint8_t *argv);
+int32_t shell_stt(uint8_t *argv);
+int32_t shell_epi(uint8_t *argv);
+int32_t shell_eps(uint8_t *argv);
+int32_t shell_flash(uint8_t *argv);
+int32_t shell_lcd(uint8_t *argv);
+int32_t shell_dbg(uint8_t *argv);
+int32_t shell_boot(uint8_t *argv);
+int32_t shell_fwu(uint8_t *argv);
+int32_t shell_psv(uint8_t *argv);
+int32_t shell_buzzer(uint8_t *argv);
 
 /*****************************************************************************/
 /*  command table
@@ -86,53 +86,50 @@ int32_t shell_buzzer(uint8_t* argv);
 /*****************************************************************************/
 const cmd_line_t lgn_cmd_table[] = {
 
-    /*************************************************************************/
-    /* system command */
-    /*************************************************************************/
-    {(const int8_t*)"reset", shell_reset, (const int8_t*)"reset terminal"},
-    {(const int8_t*)"ver", shell_ver, (const int8_t*)"version info"},
-    {(const int8_t*)"help", shell_help, (const int8_t*)"help info"},
-    {(const int8_t*)"reboot", shell_reboot, (const int8_t*)"reboot"},
-    {(const int8_t*)"ram", shell_ram, (const int8_t*)"ram"},
-    {(const int8_t*)"epi", shell_epi, (const int8_t*)"epprom init"},
-    {(const int8_t*)"fatal", shell_fatal, (const int8_t*)"fatal info"},
-    {(const int8_t*)"stt", shell_stt, (const int8_t*)"app status"},
-    {(const int8_t*)"eps", shell_eps, (const int8_t*)"epprom"},
-    {(const int8_t*)"flash", shell_flash, (const int8_t*)"flash"},
-    {(const int8_t*)"lcd", shell_lcd, (const int8_t*)"lcd"},
-    {(const int8_t*)"boot", shell_boot, (const int8_t*)"boot share"},
-    {(const int8_t*)"fwu", shell_fwu, (const int8_t*)"app burn firmware"},
-    {(const int8_t*)"psv", shell_psv, (const int8_t*)"psv"},
-    {(const int8_t*)"beep", shell_buzzer, (const int8_t*)"buzzer play tones"},
+	/*************************************************************************/
+	/* system command */
+	/*************************************************************************/
+	{(const int8_t *)"reset",  shell_reset,	   (const int8_t *)"reset terminal"   },
+	{(const int8_t *)"ver",	shell_ver,	   (const int8_t *)"version info"	 },
+	{(const int8_t *)"help",	 shell_help,	 (const int8_t *)"help info"		},
+	{(const int8_t *)"reboot", shell_reboot,	 (const int8_t *)"reboot"			 },
+	{(const int8_t *)"ram",	shell_ram,	   (const int8_t *)"ram"				},
+	{(const int8_t *)"epi",	shell_epi,	   (const int8_t *)"epprom init"		},
+	{(const int8_t *)"fatal",  shell_fatal,	   (const int8_t *)"fatal info"	   },
+	{(const int8_t *)"stt",	shell_stt,	   (const int8_t *)"app status"	   },
+	{(const int8_t *)"eps",	shell_eps,	   (const int8_t *)"epprom"		   },
+	{(const int8_t *)"flash",  shell_flash,	   (const int8_t *)"flash"			  },
+	{(const int8_t *)"lcd",	shell_lcd,	   (const int8_t *)"lcd"				},
+	{(const int8_t *)"boot",	 shell_boot,	 (const int8_t *)"boot share"		 },
+	{(const int8_t *)"fwu",	shell_fwu,	   (const int8_t *)"app burn firmware"},
+	{(const int8_t *)"psv",	shell_psv,	   (const int8_t *)"psv"				},
+	{(const int8_t *)"beep",	 shell_buzzer,   (const int8_t *)"buzzer play tones"},
 
-    /*************************************************************************/
-    /* debug command */
-    /*************************************************************************/
-    {(const int8_t*)"dbg", shell_dbg, (const int8_t*)"dbg"},
+	/*************************************************************************/
+	/* debug command */
+	/*************************************************************************/
+	{(const int8_t *)"dbg",	shell_dbg,	   (const int8_t *)"dbg"				},
 
-    /* End Of Table */
-    {(const int8_t*)0, (pf_cmd_func)0, (const int8_t*)0}};
+	/* End Of Table */
+	{(const int8_t *)0,		(pf_cmd_func)0, (const int8_t *)0					 }
+};
 
-uint8_t str_parser(char* str)
-{
+uint8_t str_parser(char *str) {
 	strcpy(cmd_buffer, str);
 	str_list_len = 0;
 
-	uint8_t i = 0;
-	uint8_t str_list_index = 0;
+	uint8_t i				= 0;
+	uint8_t str_list_index	= 0;
 	uint8_t flag_insert_str = 1;
 
-	while (cmd_buffer[i] != 0 && cmd_buffer[i] != '\n' && cmd_buffer[i] != '\r')
-	{
-		if (cmd_buffer[i] == ' ')
-		{
-			cmd_buffer[i] = 0;
+	while (cmd_buffer[i] != 0 && cmd_buffer[i] != '\n' && cmd_buffer[i] != '\r') {
+		if (cmd_buffer[i] == ' ') {
+			cmd_buffer[i]	= 0;
 			flag_insert_str = 1;
 		}
-		else if (flag_insert_str)
-		{
+		else if (flag_insert_str) {
 			str_list[str_list_index++] = &cmd_buffer[i];
-			flag_insert_str = 0;
+			flag_insert_str			   = 0;
 		}
 		i++;
 	}
@@ -143,10 +140,8 @@ uint8_t str_parser(char* str)
 	return str_list_len;
 }
 
-char* str_parser_get_attr(uint8_t index)
-{
-	if (index < str_list_len)
-	{
+char *str_parser_get_attr(uint8_t index) {
+	if (index < str_list_len) {
 		return str_list[index];
 	}
 	return NULL;
@@ -156,15 +151,13 @@ char* str_parser_get_attr(uint8_t index)
 /*  command function definaion
  */
 /*****************************************************************************/
-int32_t shell_reset(uint8_t* argv)
-{
+int32_t shell_reset(uint8_t *argv) {
 	(void)argv;
 	xprintf("\033[2J\r");
 	return 0;
 }
 
-int32_t shell_ver(uint8_t* argv)
-{
+int32_t shell_ver(uint8_t *argv) {
 	(void)argv;
 
 	firmware_header_t firmware_header;
@@ -194,15 +187,12 @@ int32_t shell_ver(uint8_t* argv)
 	return 0;
 }
 
-int32_t shell_help(uint8_t* argv)
-{
+int32_t shell_help(uint8_t *argv) {
 	uint32_t idx = 0;
-	switch (*(argv + 4))
-	{
+	switch (*(argv + 4)) {
 	default:
 		LOGIN_PRINT("\nCOMMANDS INFORMATION:\n\n");
-		while (lgn_cmd_table[idx].cmd != (const int8_t*)0)
-		{
+		while (lgn_cmd_table[idx].cmd != (const int8_t *)0) {
 			LOGIN_PRINT("%s\t-> %s\n\n", lgn_cmd_table[idx].cmd, lgn_cmd_table[idx].info);
 			idx++;
 		}
@@ -211,22 +201,19 @@ int32_t shell_help(uint8_t* argv)
 	return 0;
 }
 
-int32_t shell_reboot(uint8_t* argv)
-{
+int32_t shell_reboot(uint8_t *argv) {
 	(void)argv;
 	sys_ctrl_delay_ms(10);
 	sys_ctrl_reset();
 	return 0;
 }
 
-int32_t shell_fatal(uint8_t* argv)
-{
+int32_t shell_fatal(uint8_t *argv) {
 	fatal_log_t login_fatal_log;
 	ak_msg_t t_msg;
 	exception_info_t t_exception_info;
 
-	switch (*(argv + 6))
-	{
+	switch (*(argv + 6)) {
 	case 't':
 		FATAL("TEST", 0x02);
 		break;
@@ -243,15 +230,14 @@ int32_t shell_fatal(uint8_t* argv)
 		break;
 
 	case 'r':
-		memset((uint8_t*)&login_fatal_log, 0, sizeof(fatal_log_t));
+		memset((uint8_t *)&login_fatal_log, 0, sizeof(fatal_log_t));
 		flash_erase_sector(APP_FLASH_AK_DBG_FATAL_LOG_SECTOR);
-		flash_write(APP_FLASH_AK_DBG_FATAL_LOG_SECTOR, (uint8_t*)&login_fatal_log, sizeof(fatal_log_t));
+		flash_write(APP_FLASH_AK_DBG_FATAL_LOG_SECTOR, (uint8_t *)&login_fatal_log, sizeof(fatal_log_t));
 		LOGIN_PRINT("reset fatal log OK\n");
 		break;
 
-	case 'l':
-	{
-		flash_read(APP_FLASH_AK_DBG_FATAL_LOG_SECTOR, (uint8_t*)&login_fatal_log, sizeof(fatal_log_t));
+	case 'l': {
+		flash_read(APP_FLASH_AK_DBG_FATAL_LOG_SECTOR, (uint8_t *)&login_fatal_log, sizeof(fatal_log_t));
 
 		LOGIN_PRINT("[times] fatal: %d\n", login_fatal_log.fatal_times);
 		LOGIN_PRINT("[times] restart: %d\n", login_fatal_log.restart_times);
@@ -281,72 +267,61 @@ int32_t shell_fatal(uint8_t* argv)
 
 		LOGIN_PRINT("\n");
 		LOGIN_PRINT("[irq] IRQ number: %d\n", (int32_t)((int32_t)login_fatal_log.m3_core_reg.ipsr - (int32_t)SYS_IRQ_EXCEPTION_NUMBER_IRQ0_NUMBER_RESPECTIVE));
-	}
-	break;
+	} break;
 
-	case 'm':
-	{
+	case 'm': {
 		uint32_t flash_sys_log_address = APP_FLASH_AK_DBG_MSG_SECTOR_1;
-		for (uint32_t index = 0; index < (LOG_QUEUE_OBJECT_SIZE / sizeof(ak_msg_t)); index++)
-		{
+		for (uint32_t index = 0; index < (LOG_QUEUE_OBJECT_SIZE / sizeof(ak_msg_t)); index++) {
 			/* reset watchdog */
 			sys_ctrl_independent_watchdog_reset();
 			sys_ctrl_soft_watchdog_reset();
 
-			flash_read(flash_sys_log_address, (uint8_t*)&t_msg, sizeof(ak_msg_t));
+			flash_read(flash_sys_log_address, (uint8_t *)&t_msg, sizeof(ak_msg_t));
 			flash_sys_log_address += sizeof(ak_msg_t);
 
 			uint32_t wait_time;
 			(void)wait_time;
-			if (t_msg.dbg_handler.start_exe >= t_msg.dbg_handler.start_post)
-			{
+			if (t_msg.dbg_handler.start_exe >= t_msg.dbg_handler.start_post) {
 				wait_time = t_msg.dbg_handler.start_exe - t_msg.dbg_handler.start_post;
 			}
-			else
-			{
+			else {
 				wait_time = t_msg.dbg_handler.start_exe + (0xFFFFFFFF - t_msg.dbg_handler.start_post);
 			}
 
 			uint32_t exe_time;
 			(void)exe_time;
-			if (t_msg.dbg_handler.stop_exe >= t_msg.dbg_handler.start_exe)
-			{
+			if (t_msg.dbg_handler.stop_exe >= t_msg.dbg_handler.start_exe) {
 				exe_time = t_msg.dbg_handler.stop_exe - t_msg.dbg_handler.start_exe;
 			}
-			else
-			{
+			else {
 				exe_time = t_msg.dbg_handler.stop_exe + (0xFFFFFFFF - t_msg.dbg_handler.start_exe);
 			}
 
 			sys_ctrl_delay_ms(5);
 
-			LOGIN_PRINT("index: %d\ttask_id: %d\tmsg_type:0x%x\tref_count:%d\tsig: %d\t\twait_time: %d\texe_time: %d\n", index, t_msg.des_task_id, (t_msg.ref_count & AK_MSG_TYPE_MASK), (t_msg.ref_count & AK_MSG_REF_COUNT_MASK), t_msg.sig, (wait_time), (exe_time));
+			LOGIN_PRINT("index: %d\ttask_id: %d\tmsg_type:0x%x\tref_count:%d\tsig: %d\t\twait_time: %d\texe_time: %d\n", index, t_msg.des_task_id,
+						(t_msg.ref_count & AK_MSG_TYPE_MASK), (t_msg.ref_count & AK_MSG_REF_COUNT_MASK), t_msg.sig, (wait_time), (exe_time));
 		}
-	}
-	break;
+	} break;
 
-	case 'e':
-	{
+	case 'e': {
 		uint32_t flash_irq_log_address = APP_FLASH_AK_DBG_IRQ_LOG_SECTOR;
-		for (uint32_t index = 0; index < (LOG_QUEUE_IRQ_SIZE / sizeof(exception_info_t)); index++)
-		{
+		for (uint32_t index = 0; index < (LOG_QUEUE_IRQ_SIZE / sizeof(exception_info_t)); index++) {
 			/* reset watchdog */
 			sys_ctrl_independent_watchdog_reset();
 			sys_ctrl_soft_watchdog_reset();
 
-			flash_read(flash_irq_log_address, (uint8_t*)&t_exception_info, sizeof(exception_info_t));
+			flash_read(flash_irq_log_address, (uint8_t *)&t_exception_info, sizeof(exception_info_t));
 			flash_irq_log_address += sizeof(exception_info_t);
 
-			LOGIN_PRINT("index: %d\texcept_number: %d\tirq_number: %d\ttimestamp: %d\n", index, t_exception_info.except_number, (int32_t)((int32_t)t_exception_info.except_number - (int32_t)SYS_IRQ_EXCEPTION_NUMBER_IRQ0_NUMBER_RESPECTIVE), t_exception_info.timestamp);
+			LOGIN_PRINT("index: %d\texcept_number: %d\tirq_number: %d\ttimestamp: %d\n", index, t_exception_info.except_number,
+						(int32_t)((int32_t)t_exception_info.except_number - (int32_t)SYS_IRQ_EXCEPTION_NUMBER_IRQ0_NUMBER_RESPECTIVE), t_exception_info.timestamp);
 		}
-	}
-	break;
+	} break;
 
-	case 'R':
-	{
-		uint8_t len = str_parser((char*)argv);
-		if (len == 3)
-		{
+	case 'R': {
+		uint8_t len = str_parser((char *)argv);
+		if (len == 3) {
 			extern uint32_t _start_ram;
 			extern uint32_t _estack;
 
@@ -356,10 +331,8 @@ int32_t shell_fatal(uint8_t* argv)
 			uint32_t colum = (uint32_t)strtol(str_parser_get_attr(2), NULL, 0);
 
 			LOGIN_PRINT("\n");
-			for (uint32_t i = 0; i < len_of_ram; i++)
-			{
-				if (!(i % colum))
-				{
+			for (uint32_t i = 0; i < len_of_ram; i++) {
+				if (!(i % colum)) {
 					/* reset watchdog */
 					sys_ctrl_independent_watchdog_reset();
 					sys_ctrl_soft_watchdog_reset();
@@ -372,12 +345,10 @@ int32_t shell_fatal(uint8_t* argv)
 			}
 			LOGIN_PRINT("\n");
 		}
-		else
-		{
+		else {
 			LOGIN_PRINT("syntax error\n");
 		}
-	}
-	break;
+	} break;
 
 	default:
 		break;
@@ -386,31 +357,24 @@ int32_t shell_fatal(uint8_t* argv)
 	return 0;
 }
 
-int32_t shell_stt(uint8_t* argv)
-{
+int32_t shell_stt(uint8_t *argv) {
 	(void)argv;
 	return 0;
 }
 
-int32_t shell_epi(uint8_t* argv)
-{
+int32_t shell_epi(uint8_t *argv) {
 	(void)argv;
 	return 0;
 }
 
-int32_t shell_eps(uint8_t* argv)
-{
+int32_t shell_eps(uint8_t *argv) {
 	uint8_t val = 0;
 
-	switch (*(argv + 4))
-	{
-	case 'd':
-	{ /* data DEC format */
+	switch (*(argv + 4)) {
+	case 'd': { /* data DEC format */
 		LOGIN_PRINT("\n");
-		for (uint32_t i = 0; i < EEPROM_END_ADDR; i++)
-		{
-			if (!(i % 16))
-			{
+		for (uint32_t i = 0; i < EEPROM_END_ADDR; i++) {
+			if (!(i % 16)) {
 				/* reset watchdog */
 				sys_ctrl_independent_watchdog_reset();
 				sys_ctrl_soft_watchdog_reset();
@@ -421,16 +385,12 @@ int32_t shell_eps(uint8_t* argv)
 			LOGIN_PRINT("%d\t", val);
 		}
 		LOGIN_PRINT("\n");
-	}
-	break;
+	} break;
 
-	case 'h':
-	{ /* data HEX format */
+	case 'h': { /* data HEX format */
 		LOGIN_PRINT("\n");
-		for (uint32_t i = 0; i < EEPROM_END_ADDR; i++)
-		{
-			if (!(i % 16))
-			{
+		for (uint32_t i = 0; i < EEPROM_END_ADDR; i++) {
+			if (!(i % 16)) {
 				/* reset watchdog */
 				sys_ctrl_independent_watchdog_reset();
 				sys_ctrl_soft_watchdog_reset();
@@ -441,16 +401,13 @@ int32_t shell_eps(uint8_t* argv)
 			LOGIN_PRINT("0x%x\t", val);
 		}
 		LOGIN_PRINT("\n");
-	}
-	break;
+	} break;
 
-	case 'r':
-	{
+	case 'r': {
 		LOGIN_PRINT("erasing...\n");
 		eeprom_erase(EEPROM_START_ADDR, EEPROM_END_ADDR - EEPROM_START_ADDR);
 		LOGIN_PRINT("completed\n");
-	}
-	break;
+	} break;
 
 	default:
 		LOGIN_PRINT("unkown option !\n");
@@ -460,35 +417,29 @@ int32_t shell_eps(uint8_t* argv)
 	return 0;
 }
 
-int32_t shell_flash(uint8_t* argv)
-{
+int32_t shell_flash(uint8_t *argv) {
 	/* "flash d 0x1000 0xA000" */
-	switch (*(argv + 6))
-	{
+	switch (*(argv + 6)) {
 	case 'i':
 		LOGIN_PRINT("flash writing.. ");
 		flash_erase_sector(APP_FLASH_AK_DBG_FATAL_LOG_SECTOR);
 		LOGIN_PRINT("completed!\n");
 		break;
 
-	case 'd':
-	{
+	case 'd': {
 		uint8_t val;
-		uint8_t len = str_parser((char*)argv);
-		if (len == 4)
-		{
-			char* str_start_addr = str_parser_get_attr(2);
-			char* str_stop_addr = str_parser_get_attr(3);
-			uint32_t start_addr = strtol(str_start_addr, NULL, 0);
-			uint32_t stop_addr = strtol(str_stop_addr, NULL, 0);
+		uint8_t len = str_parser((char *)argv);
+		if (len == 4) {
+			char *str_start_addr = str_parser_get_attr(2);
+			char *str_stop_addr	 = str_parser_get_attr(3);
+			uint32_t start_addr	 = strtol(str_start_addr, NULL, 0);
+			uint32_t stop_addr	 = strtol(str_stop_addr, NULL, 0);
 			LOGIN_PRINT("start_addr: 0x%x\n", start_addr);
 			LOGIN_PRINT("stop_addr: 0x%x\n", stop_addr);
 
 			LOGIN_PRINT("\n");
-			for (uint32_t i = start_addr; i < stop_addr; i++)
-			{
-				if (!(i % 16))
-				{
+			for (uint32_t i = start_addr; i < stop_addr; i++) {
+				if (!(i % 16)) {
 					/* reset watchdog */
 					sys_ctrl_independent_watchdog_reset();
 					sys_ctrl_soft_watchdog_reset();
@@ -500,27 +451,22 @@ int32_t shell_flash(uint8_t* argv)
 			}
 			LOGIN_PRINT("\n");
 		}
-	}
-	break;
+	} break;
 
-	case 'h':
-	{
+	case 'h': {
 		uint8_t val;
-		uint8_t len = str_parser((char*)argv);
-		if (len == 4)
-		{
-			char* str_start_addr = str_parser_get_attr(2);
-			char* str_stop_addr = str_parser_get_attr(3);
-			uint32_t start_addr = strtol(str_start_addr, NULL, 0);
-			uint32_t stop_addr = strtol(str_stop_addr, NULL, 0);
+		uint8_t len = str_parser((char *)argv);
+		if (len == 4) {
+			char *str_start_addr = str_parser_get_attr(2);
+			char *str_stop_addr	 = str_parser_get_attr(3);
+			uint32_t start_addr	 = strtol(str_start_addr, NULL, 0);
+			uint32_t stop_addr	 = strtol(str_stop_addr, NULL, 0);
 			LOGIN_PRINT("start_addr: 0x%x\n", start_addr);
 			LOGIN_PRINT("stop_addr: 0x%x\n", stop_addr);
 
 			LOGIN_PRINT("\n");
-			for (uint32_t i = start_addr; i < stop_addr; i++)
-			{
-				if (!(i % 16))
-				{
+			for (uint32_t i = start_addr; i < stop_addr; i++) {
+				if (!(i % 16)) {
 					/* reset watchdog */
 					sys_ctrl_independent_watchdog_reset();
 					sys_ctrl_soft_watchdog_reset();
@@ -532,8 +478,7 @@ int32_t shell_flash(uint8_t* argv)
 			}
 			LOGIN_PRINT("\n");
 		}
-	}
-	break;
+	} break;
 
 	default:
 		LOGIN_PRINT("unknow option\n");
@@ -543,10 +488,8 @@ int32_t shell_flash(uint8_t* argv)
 	return 0;
 }
 
-int32_t shell_lcd(uint8_t* argv)
-{
-	switch (*(argv + 4))
-	{
+int32_t shell_lcd(uint8_t *argv) {
+	switch (*(argv + 4)) {
 	case 'i':
 		view_render.initialize();
 		break;
@@ -572,7 +515,7 @@ int32_t shell_lcd(uint8_t* argv)
 	case 't':
 		/* ak logo */
 #define AK_LOGO_AXIS_X 23
-#define AK_LOGO_TEXT (AK_LOGO_AXIS_X + 4)
+#define AK_LOGO_TEXT   (AK_LOGO_AXIS_X + 4)
 
 		view_render.setTextSize(1);
 		view_render.setTextColor(WHITE);
@@ -626,92 +569,72 @@ int32_t shell_lcd(uint8_t* argv)
 }
 
 /* https://www.charbase.com */
-int32_t shell_dbg(uint8_t* argv)
-{
+int32_t shell_dbg(uint8_t *argv) {
 	(void)(argv);
-	switch (*(argv + 4))
-	{
-	case '0':
-	{
+	switch (*(argv + 4)) {
+	case '0': {
 #if defined(TASK_ZIGBEE_EN)
 		task_post_pure_msg(AC_TASK_ZIGBEE_ID, AC_ZIGBEE_PERMIT_JOINING_REQ);
 #endif
-	}
-	break;
+	} break;
 
-	case 'v':
-	{
+	case 'v': {
 		uint32_t vbat;
 		(void)vbat;
 		vbat = sys_ctr_get_vbat_voltage();
 		LOGIN_PRINT("vbat: %d\n", vbat);
-	}
-	break;
+	} break;
 
-	case 't':
-	{
+	case 't': {
 		uint32_t temperature;
 		(void)temperature;
 		temperature = sys_ctr_get_mcu_temperature();
 		LOGIN_PRINT("temperature: %d\n", temperature);
-	}
-	break;
+	} break;
 
-	case 's':
-	{
+	case 's': {
 		sys_ctr_stop_mcu();
-	}
-	break;
+	} break;
 
-	default:
-	{
-	}
-	break;
+	default: {
+	} break;
 	}
 
 	return 0;
 }
 
-int32_t shell_ram(uint8_t* argv)
-{
+int32_t shell_ram(uint8_t *argv) {
 	extern uint32_t _start_ram;
 	extern uint32_t _estack;
 
-	char* str_start_addr = NULL;
-	char* str_stop_addr = NULL;
-	uint8_t* start_addr = NULL;
-	uint8_t* stop_addr = NULL;
+	char *str_start_addr = NULL;
+	char *str_stop_addr	 = NULL;
+	uint8_t *start_addr	 = NULL;
+	uint8_t *stop_addr	 = NULL;
 
-	uint8_t len = str_parser((char*)argv);
+	uint8_t len = str_parser((char *)argv);
 
 	LOGIN_PRINT("RAM start: 0x%x\n", ((uint32_t)&_start_ram));
 	LOGIN_PRINT("RAM   end: 0x%x\n", ((uint32_t)&_estack));
 
 	/* "ram x 0x1000 0xA000" */
-	switch (*(argv + 4))
-	{
-	case 'r':
-	{
-		if (len == 4)
-		{
+	switch (*(argv + 4)) {
+	case 'r': {
+		if (len == 4) {
 			str_start_addr = str_parser_get_attr(2);
-			str_stop_addr = str_parser_get_attr(3);
-			start_addr = (uint8_t*)((uint32_t)strtol(str_start_addr, NULL, 0));
-			stop_addr = (uint8_t*)((uint32_t)strtol(str_stop_addr, NULL, 0));
+			str_stop_addr  = str_parser_get_attr(3);
+			start_addr	   = (uint8_t *)((uint32_t)strtol(str_start_addr, NULL, 0));
+			stop_addr	   = (uint8_t *)((uint32_t)strtol(str_stop_addr, NULL, 0));
 
 			LOGIN_PRINT("start_addr: 0x%x\n", start_addr);
 			LOGIN_PRINT("stop_addr: 0x%x\n", stop_addr);
 
-			if ((uint32_t)start_addr >= ((uint32_t)&_start_ram) && (uint32_t)stop_addr <= ((uint32_t)&_estack))
-			{
-
+			if ((uint32_t)start_addr >= ((uint32_t)&_start_ram) && (uint32_t)stop_addr <= ((uint32_t)&_estack)) {
 				/* start dump ram */
 				LOGIN_PRINT("\n");
 
-				for (uint8_t* addr_index = start_addr; addr_index < stop_addr; addr_index++)
-				{
-					if (!((uint32_t)addr_index % 4))
-					{
+				for (uint8_t *addr_index = start_addr; addr_index < stop_addr; addr_index++) {
+					if (!((uint32_t)addr_index % 4)) {
 						/* reset watchdog */
 						sys_ctrl_independent_watchdog_reset();
 						sys_ctrl_soft_watchdog_reset();
@@ -727,35 +650,27 @@ int32_t shell_ram(uint8_t* argv)
 				/* end dump ram */
 			}
 		}
-		else
-		{
+		else {
 			LOGIN_PRINT("syntax error\n");
 		}
-	}
-	break;
+	} break;
 
-	case 'd':
-	{ /* ram d 0x20000000 0x20004000 */
-		if (len == 4)
-		{
+	case 'd': { /* ram d 0x20000000 0x20004000 */
+		if (len == 4) {
 			str_start_addr = str_parser_get_attr(2);
-			str_stop_addr = str_parser_get_attr(3);
-			start_addr = (uint8_t*)((uint32_t)strtol(str_start_addr, NULL, 0));
-			stop_addr = (uint8_t*)((uint32_t)strtol(str_stop_addr, NULL, 0));
+			str_stop_addr  = str_parser_get_attr(3);
+			start_addr	   = (uint8_t *)((uint32_t)strtol(str_start_addr, NULL, 0));
+			stop_addr	   = (uint8_t *)((uint32_t)strtol(str_stop_addr, NULL, 0));
 
 			LOGIN_PRINT("start_addr: 0x%x\n", start_addr);
 			LOGIN_PRINT("stop_addr: 0x%x\n", stop_addr);
 
-			if ((uint32_t)start_addr >= ((uint32_t)&_start_ram) && (uint32_t)stop_addr <= ((uint32_t)&_estack))
-			{
-
+			if ((uint32_t)start_addr >= ((uint32_t)&_start_ram) && (uint32_t)stop_addr <= ((uint32_t)&_estack)) {
 				/* start dump ram */
 				LOGIN_PRINT("\n");
 
-				for (uint8_t* addr_index = start_addr; addr_index < stop_addr; addr_index++)
-				{
-					if (!((uint32_t)addr_index % 4))
-					{
+				for (uint8_t *addr_index = start_addr; addr_index < stop_addr; addr_index++) {
+					if (!((uint32_t)addr_index % 4)) {
 						/* reset watchdog */
 						sys_ctrl_independent_watchdog_reset();
 						sys_ctrl_soft_watchdog_reset();
@@ -770,35 +685,27 @@ int32_t shell_ram(uint8_t* argv)
 				/* end dump ram */
 			}
 		}
-		else
-		{
+		else {
 			LOGIN_PRINT("syntax error\n");
 		}
-	}
-	break;
+	} break;
 
-	case 'h':
-	{
-		if (len == 4)
-		{
+	case 'h': {
+		if (len == 4) {
 			str_start_addr = str_parser_get_attr(2);
-			str_stop_addr = str_parser_get_attr(3);
-			start_addr = (uint8_t*)((uint32_t)strtol(str_start_addr, NULL, 0));
-			stop_addr = (uint8_t*)((uint32_t)strtol(str_stop_addr, NULL, 0));
+			str_stop_addr  = str_parser_get_attr(3);
+			start_addr	   = (uint8_t *)((uint32_t)strtol(str_start_addr, NULL, 0));
+			stop_addr	   = (uint8_t *)((uint32_t)strtol(str_stop_addr, NULL, 0));
 
 			LOGIN_PRINT("start_addr: 0x%x\n", start_addr);
 			LOGIN_PRINT("stop_addr: 0x%x\n", stop_addr);
 
-			if ((uint32_t)start_addr >= ((uint32_t)&_start_ram) && (uint32_t)stop_addr <= ((uint32_t)&_estack))
-			{
-
+			if ((uint32_t)start_addr >= ((uint32_t)&_start_ram) && (uint32_t)stop_addr <= ((uint32_t)&_estack)) {
 				/* start dump ram */
 				LOGIN_PRINT("\n");
 
-				for (uint8_t* addr_index = start_addr; addr_index < stop_addr; addr_index++)
-				{
-					if (!((uint32_t)addr_index % 4))
-					{
+				for (uint8_t *addr_index = start_addr; addr_index < stop_addr; addr_index++) {
+					if (!((uint32_t)addr_index % 4)) {
 						/* reset watchdog */
 						sys_ctrl_independent_watchdog_reset();
 						sys_ctrl_soft_watchdog_reset();
@@ -813,100 +720,68 @@ int32_t shell_ram(uint8_t* argv)
 				/* end dump ram */
 			}
 		}
-		else
-		{
+		else {
 			LOGIN_PRINT("syntax error\n");
 		}
-	}
-	break;
+	} break;
 
-	case 's':
-	{
+	case 's': {
 		LOGIN_PRINT("Stack Size: %d\n", sys_stack_get_size());
 		LOGIN_PRINT("Stack Usage: %d\n", sys_stack_usage());
 		sys_dbg_stack_space_dump();
-	}
-	break;
+	} break;
 
-	case 'c':
-	{
+	case 'c': {
 		sys_dbg_cpu_dump();
-	}
-	break;
+	} break;
 
-	default:
-	{
+	default: {
 		LOGIN_PRINT("unknown option\n");
-	}
-	break;
+	} break;
 	}
 
 	return 0;
 }
 
-int32_t shell_boot(uint8_t* argv)
-{
-	switch (*(argv + 5))
-	{
-	case 'i':
-	{
+int32_t shell_boot(uint8_t *argv) {
+	switch (*(argv + 5)) {
+	case 'i': {
 		sys_boot_t sys_boot;
 		sys_boot_get(&sys_boot);
-		LOGIN_PRINT("\n[b_fwc] psk: 0x%08X checksum: 0x%08X bin_len: %d\n",
-		            sys_boot.current_fw_boot_header.psk,
-		            sys_boot.current_fw_boot_header.checksum,
-		            sys_boot.current_fw_boot_header.bin_len);
-		LOGIN_PRINT("[b_fwu] psk: 0x%08X checksum: 0x%08X bin_len: %d\n",
-		            sys_boot.update_fw_boot_header.psk,
-		            sys_boot.update_fw_boot_header.checksum,
-		            sys_boot.update_fw_boot_header.bin_len);
-		LOGIN_PRINT("[b_cmd] cmd: %d container:%d io_driver: %d des_addr: 0x%08X src_addr: 0x%08X\n",
-		            sys_boot.fw_boot_cmd.cmd,
-		            sys_boot.fw_boot_cmd.container,
-		            sys_boot.fw_boot_cmd.io_driver,
-		            sys_boot.fw_boot_cmd.des_addr,
-		            sys_boot.fw_boot_cmd.src_addr);
+		LOGIN_PRINT("\n[b_fwc] psk: 0x%08X checksum: 0x%08X bin_len: %d\n", sys_boot.current_fw_boot_header.psk, sys_boot.current_fw_boot_header.checksum,
+					sys_boot.current_fw_boot_header.bin_len);
+		LOGIN_PRINT("[b_fwu] psk: 0x%08X checksum: 0x%08X bin_len: %d\n", sys_boot.update_fw_boot_header.psk, sys_boot.update_fw_boot_header.checksum,
+					sys_boot.update_fw_boot_header.bin_len);
+		LOGIN_PRINT("[b_cmd] cmd: %d container:%d io_driver: %d des_addr: 0x%08X src_addr: 0x%08X\n", sys_boot.fw_boot_cmd.cmd, sys_boot.fw_boot_cmd.container,
+					sys_boot.fw_boot_cmd.io_driver, sys_boot.fw_boot_cmd.des_addr, sys_boot.fw_boot_cmd.src_addr);
 
-		LOGIN_PRINT("\n[a_fwc] psk: 0x%08X checksum: 0x%08X bin_len: %d\n",
-		            sys_boot.current_fw_app_header.psk,
-		            sys_boot.current_fw_app_header.checksum,
-		            sys_boot.current_fw_app_header.bin_len);
-		LOGIN_PRINT("[a_fwu] psk: 0x%08X checksum: 0x%08X bin_len: %d\n",
-		            sys_boot.update_fw_app_header.psk,
-		            sys_boot.update_fw_app_header.checksum,
-		            sys_boot.update_fw_app_header.bin_len);
-		LOGIN_PRINT("[a_cmd] cmd: %d container:%d io_driver: %d des_addr: 0x%08X src_addr: 0x%08X\n",
-		            sys_boot.fw_app_cmd.cmd,
-		            sys_boot.fw_app_cmd.container,
-		            sys_boot.fw_app_cmd.io_driver,
-		            sys_boot.fw_app_cmd.des_addr,
-		            sys_boot.fw_app_cmd.src_addr);
-	}
-	break;
+		LOGIN_PRINT("\n[a_fwc] psk: 0x%08X checksum: 0x%08X bin_len: %d\n", sys_boot.current_fw_app_header.psk, sys_boot.current_fw_app_header.checksum,
+					sys_boot.current_fw_app_header.bin_len);
+		LOGIN_PRINT("[a_fwu] psk: 0x%08X checksum: 0x%08X bin_len: %d\n", sys_boot.update_fw_app_header.psk, sys_boot.update_fw_app_header.checksum,
+					sys_boot.update_fw_app_header.bin_len);
+		LOGIN_PRINT("[a_cmd] cmd: %d container:%d io_driver: %d des_addr: 0x%08X src_addr: 0x%08X\n", sys_boot.fw_app_cmd.cmd, sys_boot.fw_app_cmd.container,
+					sys_boot.fw_app_cmd.io_driver, sys_boot.fw_app_cmd.des_addr, sys_boot.fw_app_cmd.src_addr);
+	} break;
 
-	case 'r':
-	{
+	case 'r': {
 		sys_boot_t sys_boot;
 		memset(&sys_boot, 0, sizeof(sys_boot_t));
 		sys_boot_set(&sys_boot);
-	}
-	break;
+	} break;
 
-	case 't':
-	{
+	case 't': {
 		sys_boot_t sb;
 		sys_boot_get(&sb);
 
 		/* cmd update request */
-		sb.fw_app_cmd.cmd = SYS_BOOT_CMD_UPDATE_REQ;
+		sb.fw_app_cmd.cmd		= SYS_BOOT_CMD_UPDATE_REQ;
 		sb.fw_app_cmd.container = SYS_BOOT_CONTAINER_EXTERNAL_FLASH;
 		sb.fw_app_cmd.io_driver = SYS_BOOT_IO_DRIVER_NONE;
-		sb.fw_app_cmd.des_addr = APP_START_ADDR;
-		sb.fw_app_cmd.src_addr = APP_FLASH_FIRMWARE_START_ADDR;
+		sb.fw_app_cmd.des_addr	= APP_START_ADDR;
+		sb.fw_app_cmd.src_addr	= APP_FLASH_FIRMWARE_START_ADDR;
 
 		sys_boot_set(&sb);
-	}
-	break;
+	} break;
 
 	default:
 		break;
@@ -915,64 +790,50 @@ int32_t shell_boot(uint8_t* argv)
 	return 0;
 }
 
-int32_t shell_fwu(uint8_t* argv)
-{
+int32_t shell_fwu(uint8_t *argv) {
 	(void)argv;
 	sys_boot_t sb;
 	sys_boot_get(&sb);
 
 	/* cmd update request */
-	sb.fw_app_cmd.cmd = SYS_BOOT_CMD_UPDATE_REQ;
+	sb.fw_app_cmd.cmd		= SYS_BOOT_CMD_UPDATE_REQ;
 	sb.fw_app_cmd.container = SYS_BOOT_CONTAINER_DIRECTLY;
 	sb.fw_app_cmd.io_driver = SYS_BOOT_IO_DRIVER_UART;
-	sb.fw_app_cmd.des_addr = APP_START_ADDR;
-	sb.fw_app_cmd.src_addr = 0;
+	sb.fw_app_cmd.des_addr	= APP_START_ADDR;
+	sb.fw_app_cmd.src_addr	= 0;
 	sys_boot_set(&sb);
 
 	sys_ctrl_reset();
 	return 0;
 }
 
-int32_t shell_psv(uint8_t* argv)
-{
+int32_t shell_psv(uint8_t *argv) {
 	(void)argv;
 	SCB->ICSR |= SCB_ICSR_PENDSVSET_Msk;
 	return 0;
 }
 
-int32_t shell_buzzer(uint8_t* argv)
-{
-	switch (*(argv + 5))
-	{
-	case 'i':
-	{
+int32_t shell_buzzer(uint8_t *argv) {
+	switch (*(argv + 5)) {
+	case 'i': {
 		BUZZER_Init();
-	}
-	break;
+	} break;
 
-	case '1':
-	{
+	case '1': {
 		BUZZER_PlayTones(tones_startup);
-	}
-	break;
+	} break;
 
-	case '2':
-	{
+	case '2': {
 		BUZZER_PlayTones(tones_3beep);
-	}
-	break;
+	} break;
 
-	case '3':
-	{
+	case '3': {
 		BUZZER_PlayTones(tones_SMB);
-	}
-	break;
+	} break;
 
-	case '4':
-	{
+	case '4': {
 		BUZZER_PlayTones(tones_merryChrismast);
-	}
-	break;
+	} break;
 
 	default:
 		LOGIN_PRINT("\n[HELP]\n");

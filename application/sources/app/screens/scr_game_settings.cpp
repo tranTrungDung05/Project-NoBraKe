@@ -1,15 +1,11 @@
 #include "scr_game_settings.h"
 
-static void draw_difficulty_card(int16_t x, uint8_t width, int16_t label_x,
-                                 const char* label, uint8_t selected)
-{
-	if (selected)
-	{
+static void draw_difficulty_card(int16_t x, uint8_t width, int16_t label_x, const char *label, uint8_t selected) {
+	if (selected) {
 		view_render.fillRect(x, 24, width, 16, WHITE);
 		view_render.setTextColor(BLACK);
 	}
-	else
-	{
+	else {
 		view_render.drawRect(x, 24, width, 16, WHITE);
 		view_render.setTextColor(WHITE);
 	}
@@ -18,8 +14,7 @@ static void draw_difficulty_card(int16_t x, uint8_t width, int16_t label_x,
 	view_render.print(label);
 }
 
-static void view_scr_game_settings()
-{
+static void view_scr_game_settings() {
 	view_render.drawRoundRect(3, 3, 122, 58, 4, WHITE);
 	view_render.setTextSize(1);
 	view_render.setTextColor(WHITE);
@@ -35,43 +30,31 @@ static void view_scr_game_settings()
 	draw_difficulty_card(91, 29, 93, "HARD", difficulty == 2);
 }
 
-view_dynamic_t dyn_view_item_game_settings = {
-    {.item_type = ITEM_TYPE_DYNAMIC},
-    view_scr_game_settings};
+view_dynamic_t dyn_view_item_game_settings = {{.item_type = ITEM_TYPE_DYNAMIC}, view_scr_game_settings};
 
 view_screen_t scr_game_settings = {
-    &dyn_view_item_game_settings,
-    ITEM_NULL,
-    ITEM_NULL,
-    .focus_item = 0,
+	&dyn_view_item_game_settings,
+	ITEM_NULL,
+	ITEM_NULL,
+	.focus_item = 0,
 };
 
-void scr_game_settings_handle(ak_msg_t* msg)
-{
-	switch (msg->sig)
-	{
-	case SCREEN_ENTRY:
-	{
-	}
-	break;
+void scr_game_settings_handle(ak_msg_t *msg) {
+	switch (msg->sig) {
+	case SCREEN_ENTRY: {
+	} break;
 
-	case AC_DISPLAY_BUTTON_MODE_PRESSED:
-	{
+	case AC_DISPLAY_BUTTON_MODE_PRESSED: {
 		SCREEN_TRAN(scr_menu_game_handle, &scr_menu_game);
-	}
-	break;
+	} break;
 
-	case AC_DISPLAY_BUTTON_UP_PRESSED:
-	{
+	case AC_DISPLAY_BUTTON_UP_PRESSED: {
 		nb_game_settings_change_difficulty(1);
-	}
-	break;
+	} break;
 
-	case AC_DISPLAY_BUTTON_DOWN_PRESSED:
-	{
+	case AC_DISPLAY_BUTTON_DOWN_PRESSED: {
 		nb_game_settings_change_difficulty(-1);
-	}
-	break;
+	} break;
 
 	default:
 		break;
