@@ -17,7 +17,7 @@
     <td align="center">
       <img
         src="hardware/images/screen/banner_game_nobrake.gif"
-        alt="No Brake finish"
+        alt="No Brake banner"
         width="800"
       />
     </td>
@@ -30,7 +30,7 @@
   <video
     src="https://github.com/user-attachments/assets/119c1d49-5e34-485f-9d85-bea0a484c2a3"
     controls
-    width="460"
+    width="160"
   ></video>
 </div>
 <h2>Documentation</h2>
