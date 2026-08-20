@@ -15,23 +15,49 @@ By connecting these lines together, the road gradually takes shape.
 The examples below show how the road is built step by step.
 
 <table align="center">
+
   <tr>
-    <td align="center"><img src="../hardware/images/guide/guide-pseudo3d-theory/guide-pseudo3d-theory-first_line.png" alt="First road line" width="1000"/></td>
+    <td align="center">
+      <img src="../hardware/images/guide/guide-pseudo3d-theory/guide-pseudo3d-theory-first_line.png"
+           alt="First road line"
+           width="1000"/>
+      <p><strong><em>Figure 1:</em></strong> Add first line</p>
+    </td>
   </tr>
+
   <tr>
-    <td align="center"><img src="../hardware/images/guide/guide-pseudo3d-theory/guide-pseudo3d-theory-second_line.png" alt="Second road line" width="1000"/></td>
+    <td align="center">
+      <img src="../hardware/images/guide/guide-pseudo3d-theory/guide-pseudo3d-theory-second_line.png"
+           alt="Second road line"
+           width="1000"/>
+      <p><strong><em>Figure 2:</em></strong> Add second line</p>
+    </td>
   </tr>
+
   <tr>
-    <td align="center"><img src="../hardware/images/guide/guide-pseudo3d-theory/guide-pseudo3d-theory-third_line.png" alt="Third road line" width="1000"/></td>
+    <td align="center">
+      <img src="../hardware/images/guide/guide-pseudo3d-theory/guide-pseudo3d-theory-third_line.png"
+           alt="Third road line"
+           width="1000"/>
+      <p><strong><em>Figure 3:</em></strong> Add third line</p>
+    </td>
   </tr>
+
 </table>
 
 As more lines are added, they gradually form the shape of the road.
 
 <table align="center">
+
   <tr>
-    <td align="center"><img src="../hardware/images/guide/guide-pseudo3d-theory/guide-pseudo3d-theory-full_road.png" alt="Full road" width="1000"/></td>
+    <td align="center">
+      <img src="../hardware/images/guide/guide-pseudo3d-theory/guide-pseudo3d-theory-full_road.png"
+           alt="Full road"
+           width="1000"/>
+      <p><strong><em>Figure 4:</em></strong> Visible road</p>
+    </td>
   </tr>
+
 </table>
 
 That's it. A collection of 2D lines is enough to create the basic road
@@ -42,9 +68,16 @@ to the left or right. When these small changes are applied across multiple
 lines, the road appears to bend.
 
 <table align="center">
+
   <tr>
-    <td align="center"><img src="../hardware/images/guide/guide-pseudo3d-theory/guide-pseudo3d-theory-curving.png" alt="Curving road" width="1000"/></td>
+    <td align="center">
+      <img src="../hardware/images/guide/guide-pseudo3d-theory/guide-pseudo3d-theory-curving.png"
+           alt="Curving road"
+           width="1000"/>
+      <p><strong><em>Figure 5:</em></strong> Curving the road</p>
+    </td>
   </tr>
+
 </table>
 
 This is the basic idea behind the pseudo-3D road renderer used in NoBrake:
