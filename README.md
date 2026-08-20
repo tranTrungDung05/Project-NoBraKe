@@ -18,7 +18,7 @@
       <img
         src="hardware/images/screen/banner_game_nobrake.gif"
         alt="No Brake finish"
-        width="880"
+        width="860"
       />
     </td>
   </tr>
